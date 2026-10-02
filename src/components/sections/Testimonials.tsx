@@ -2,136 +2,106 @@
 
 import React, { useState } from "react";
 import { Section } from "@/components/ui/Section";
-import { Play, Star, ChevronLeft, ChevronRight, Quote } from "lucide-react";
+import { Play, ChevronLeft, ChevronRight, ImageIcon } from "lucide-react";
 
 export function Testimonials() {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [sliderIndex, setSliderIndex] = useState(0);
 
-  const videoTestimonials = [
-    { name: "د. أحمد سامي", role: "أخصائي جراحة وزراعة الأسنان", topic: "كيف تضاعفت حجوزات العيادة بعد تطبيق مسار الرحلة", duration: "02:45" },
-    { name: "سارة خليل", role: "Medical Copywriter & Content Lead", topic: "الانتقال من كتابة البوستات العامة إلى استراتيجيات كاملة", duration: "03:10" },
-    { name: "م. كريم عبد الرحمن", role: "مدير تسويق مجمع عيادات تخصصية", topic: "ضبط تكلفة المريض المكتسب وتفادي تسرب الـ Leads", duration: "01:55" },
+  const videoPlaceholders = [
+    { title: "فيديو تجربة 1" },
+    { title: "فيديو تجربة 2" },
+    { title: "فيديو تجربة 3" },
   ];
 
-  const writtenReviews = [
-    {
-      text: "الكورس نقل تفكيري من مجرد كاتب بيقعد قدام الشاشة مستني فكرة تنزل عليه، إلى مسوق فاهم بيزنس وعنده خطوات واضحة من دراسة المنافس لحد كتابة الإعلان وقياسه.",
-      author: "محمود إبراهيم",
-      role: "Senior Copywriter",
-    },
-    {
-      text: "كنت بعاني في التعامل مع عيادات الأسنان لأن المادة العلمية صعبة، والعميل دايماً بيعترض. طريقة تفكيك الخدمة والـ Voice of Customer فرقت معايا جداً في النتائج.",
-      author: "نورهان الشافعي",
-      role: "Freelance Content Creator",
-    },
-    {
-      text: "أنا طبيب وعندي عيادتي، ومكنتش فاهم ليه الإعلانات بتجيب رسايل كتير ومفيش حد بيحضر. بعد ما فهمت الـ Leakage Map عرفت المشكلة كانت فين في سكرتارية الحجز والرسائل.",
-      author: "د. هيثم منصور",
-      role: "طبيب أسنان وأخصائي تقويم",
-    },
-    {
-      text: "أهم جزء كان موديول الـ AI، مش مجرد شات جي بي تي عادي، لكن إزاي تبني الـ Context الطبي وتراجع عليه. المخرجات اختصرت 70% من وقت العمل اليومي.",
-      author: "عمر فاروق",
-      role: "Social Media Specialist",
-    },
-    {
-      text: "قوالب ومخرجات الكورس لوحدها تسوى أضعاف تمن الكورس. الـ Hook Bank وسيناريوهات الريلز استعملتها تاني يوم مع عميلي وحققت أعلى نسبة مشاهدات وحجوزات.",
-      author: "ياسمين عبد العزيز",
-      role: "Agency Media Buyer",
-    },
+  const screenshots = [
+    { id: 1, label: "لقطة شاشة لرأي متدرب / عميل 1" },
+    { id: 2, label: "لقطة شاشة لرأي متدرب / عميل 2" },
+    { id: 3, label: "لقطة شاشة لرأي متدرب / عميل 3" },
+    { id: 4, label: "لقطة شاشة لرأي متدرب / عميل 4" },
+    { id: 5, label: "لقطة شاشة لرأي متدرب / عميل 5" },
   ];
 
-  const next = () => setCurrentIndex((prev) => (prev + 1) % writtenReviews.length);
-  const prev = () => setCurrentIndex((prev) => (prev - 1 + writtenReviews.length) % writtenReviews.length);
+  const next = () => setSliderIndex((prev) => (prev + 1) % screenshots.length);
+  const prev = () => setSliderIndex((prev) => (prev - 1 + screenshots.length) % screenshots.length);
 
   return (
     <Section
       id="testimonials"
-      eyebrow="تجارب المتدربين والعملاء"
-      title="نتائج وآراء واقعية من الميدان"
-      description="شاهد كيف ساعد المنهج المسوقين والأطباء على إحداث فارق ملموس في مسارهم المهني ونتائج عياداتهم"
+      eyebrow="Testimonials"
+      title="شوف تجربة المتدربين والعملاء"
       tone="sunken"
     >
       <div className="space-y-16">
-        {/* 1. Video Teasers (Arch-topped compact display) */}
+        {/* 1. Video Testimonials (3 فيديوهات قوية) */}
         <div>
           <h3 className="font-display text-lg font-bold text-[var(--color-ink)] mb-6 text-right">
-            فيديوهات وتجارب مسجلة:
+            Video Testimonials
           </h3>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {videoTestimonials.map((item, idx) => (
+            {videoPlaceholders.map((vid, idx) => (
               <div
                 key={idx}
-                className="group cursor-pointer space-y-3 text-right"
+                className="aspect-video rounded-2xl bg-[var(--color-bg-elevated)] border border-[var(--color-border)] flex flex-col items-center justify-center p-4 text-center group cursor-pointer hover:border-[var(--color-accent)] transition-all shadow-2xs"
               >
-                <div className="relative aspect-video rounded-2xl bg-gradient-to-tr from-[#2d211a] via-[#1f1e1d] to-[#241a15] flex flex-col items-center justify-center border border-[var(--color-gold)]/30 group-hover:border-[var(--color-accent)] transition-all overflow-hidden shadow-2xs">
-                  <div className="w-12 h-12 rounded-full bg-[var(--color-accent)] text-white flex items-center justify-center shadow-md group-hover:scale-110 transition-transform">
-                    <Play className="w-5 h-5 fill-current mr-0.5" />
-                  </div>
-                  <span className="absolute bottom-2.5 left-2.5 bg-black/60 text-white text-[10px] font-mono px-2 py-0.5 rounded">
-                    {item.duration}
-                  </span>
+                <div className="w-12 h-12 rounded-full bg-[var(--color-accent)] text-white flex items-center justify-center shadow-md group-hover:scale-110 transition-transform mb-2">
+                  <Play className="w-5 h-5 fill-current mr-0.5" />
                 </div>
-
-                <div className="space-y-1">
-                  <h4 className="font-display text-sm font-bold text-[var(--color-ink)]">
-                    {item.name}
-                  </h4>
-                  <p className="text-[11px] text-[var(--color-gold-deep)] font-medium">
-                    {item.role}
-                  </p>
-                  <p className="text-xs text-[var(--color-muted)] leading-relaxed">
-                    &quot;{item.topic}&quot;
-                  </p>
-                </div>
+                <span className="font-display text-xs font-bold text-[var(--color-ink)]">
+                  {vid.title}
+                </span>
               </div>
             ))}
           </div>
         </div>
 
-        {/* 2. Focused Editorial Quote Slider */}
+        {/* 2. Written Testimonials (Screenshots تتحول إلى Dynamic Slider) */}
         <div className="pt-8 border-t border-[var(--color-border)]">
-          <div className="max-w-3xl mx-auto text-center space-y-6">
-            <div className="flex items-center justify-center gap-1 text-[var(--color-gold)]">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-4 h-4 fill-current" />
-              ))}
-            </div>
+          <div className="flex items-center justify-between mb-6">
+            <h3 className="font-display text-lg font-bold text-[var(--color-ink)]">
+              Written Testimonials
+            </h3>
 
-            <p className="font-display text-lg sm:text-2xl text-[var(--color-ink)] leading-relaxed text-balance">
-              &quot;{writtenReviews[currentIndex].text}&quot;
-            </p>
-
-            <div>
-              <h4 className="font-display text-base font-bold text-[var(--color-accent)]">
-                {writtenReviews[currentIndex].author}
-              </h4>
-              <p className="text-xs text-[var(--color-muted)] font-medium mt-0.5">
-                {writtenReviews[currentIndex].role}
-              </p>
-            </div>
-
-            {/* Slider navigation */}
-            <div className="flex items-center justify-center gap-3 pt-2">
+            {/* Slider controls */}
+            <div className="flex items-center gap-2">
               <button
                 onClick={prev}
-                className="w-9 h-9 rounded-full border border-[var(--color-border-strong)] bg-[var(--color-bg-elevated)] flex items-center justify-center text-[var(--color-ink)] hover:border-[var(--color-accent)] transition-colors cursor-pointer"
+                className="w-8 h-8 rounded-full border border-[var(--color-border-strong)] bg-[var(--color-bg-elevated)] flex items-center justify-center text-[var(--color-ink)] hover:border-[var(--color-accent)] transition-colors cursor-pointer"
                 aria-label="السابق"
               >
                 <ChevronRight className="w-4 h-4" />
               </button>
-              <span className="font-mono text-xs text-[var(--color-muted)]">
-                {currentIndex + 1} / {writtenReviews.length}
-              </span>
               <button
                 onClick={next}
-                className="w-9 h-9 rounded-full border border-[var(--color-border-strong)] bg-[var(--color-bg-elevated)] flex items-center justify-center text-[var(--color-ink)] hover:border-[var(--color-accent)] transition-colors cursor-pointer"
+                className="w-8 h-8 rounded-full border border-[var(--color-border-strong)] bg-[var(--color-bg-elevated)] flex items-center justify-center text-[var(--color-ink)] hover:border-[var(--color-accent)] transition-colors cursor-pointer"
                 aria-label="التالي"
               >
                 <ChevronLeft className="w-4 h-4" />
               </button>
             </div>
+          </div>
+
+          {/* Cards for desktop (3) and mobile (1) */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[0, 1, 2].map((offset) => {
+              const item = screenshots[(sliderIndex + offset) % screenshots.length];
+              return (
+                <div
+                  key={offset}
+                  className={`aspect-[4/3] rounded-2xl bg-[var(--color-bg-elevated)] border border-[var(--color-border)] flex flex-col items-center justify-center p-6 text-center shadow-2xs ${
+                    offset > 0 ? "hidden md:flex" : "flex"
+                  }`}
+                >
+                  <ImageIcon className="w-8 h-8 text-[var(--color-gold)] mb-3" />
+                  <p className="font-display text-sm font-semibold text-[var(--color-ink)]">
+                    {item.label}
+                  </p>
+                  <span className="text-[11px] text-[var(--color-muted)] mt-1">
+                    مساحة سكرين شوت لرأي حقيقي
+                  </span>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

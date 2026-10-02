@@ -12,29 +12,29 @@ export function Guarantee() {
               <ShieldCheck className="w-6 h-6 stroke-[1.5]" />
             </div>
             <div>
-              <h3 className="font-display text-base font-bold text-[var(--color-ink)]">
-                ضمان 100% لاسترجاع المال خلال 7 أيام
+              <h3 className="font-display text-base sm:text-lg font-bold text-[var(--color-ink)]">
+                جرّب الكورس بدون مخاطرة
               </h3>
-              <p className="text-xs text-[var(--color-muted)] mt-0.5">
-                جرّب الكورس بدون مخاطرة؛ استرداد كامل المبلغ إذا لم تجد فيه القيمة المتوقعة.
+              <p className="text-xs sm:text-sm text-[var(--color-muted)] mt-0.5">
+                استرداد المبلغ بالكامل خلال 7 أيام إذا كنت غير راغب في استكمال الكورس. ضمان 100% لاسترجاع المال
               </p>
             </div>
           </div>
 
           <div className="flex items-center gap-6 text-xs text-[var(--color-gold-deep)] font-medium">
             <span className="flex items-center gap-1.5">
-              <Lock className="w-3.5 h-3.5" />
+              <Lock className="w-3.5 h-3.5 text-[var(--color-accent)]" />
               دفع آمن
             </span>
             <span>•</span>
             <span className="flex items-center gap-1.5">
-              <CreditCard className="w-3.5 h-3.5" />
-              تسهيلات دفع
+              <CreditCard className="w-3.5 h-3.5 text-[var(--color-accent)]" />
+              طرق دفع متعددة
             </span>
             <span>•</span>
             <span className="flex items-center gap-1.5">
-              <RotateCcw className="w-3.5 h-3.5" />
-              استرداد مرن
+              <RotateCcw className="w-3.5 h-3.5 text-[var(--color-accent)]" />
+              سياسة استرداد واضحة
             </span>
           </div>
         </div>

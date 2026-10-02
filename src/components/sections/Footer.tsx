@@ -1,8 +1,6 @@
 import React from "react";
-import Link from "next/link";
 import { siteConfig } from "@/config/site";
 import { Container } from "@/components/ui/Primitives";
-import { MessageCircle } from "lucide-react";
 
 function FacebookIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
@@ -37,8 +35,6 @@ function YoutubeIcon(props: React.SVGProps<SVGSVGElement>) {
 }
 
 export function Footer() {
-  const currentYear = new Date().getFullYear();
-
   const socialLinks = [
     { label: "Facebook", href: "https://facebook.com", icon: FacebookIcon },
     { label: "Instagram", href: "https://instagram.com", icon: InstagramIcon },
@@ -47,112 +43,63 @@ export function Footer() {
   ];
 
   return (
-    <footer className="bg-[var(--color-bg-sunken)] text-[var(--color-ink)] pt-16 pb-12 border-t border-[var(--color-border)]">
+    <footer className="bg-[var(--color-bg-sunken)] text-[var(--color-ink)] py-12 border-t border-[var(--color-border)]">
       <Container size="wide">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-[var(--color-border-strong)]">
-          {/* Brand info */}
-          <div className="md:col-span-5 space-y-4 text-right">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full bg-[var(--color-accent)] text-white flex items-center justify-center font-bold text-lg font-display">
-                م
-              </div>
-              <div>
-                <span className="font-display text-lg font-bold block leading-tight">
-                  المحتوى الطبي
-                </span>
-                <span className="text-xs text-[var(--color-muted)]">
-                  Copyway — Medical Performance Marketing
-                </span>
-              </div>
-            </div>
-
-            <p className="text-xs sm:text-sm text-[var(--color-muted)] leading-relaxed max-w-sm">
-              برنامج تدريبي مهني وتطبيقي متكامل لبناء منظومات التسويق الرقمي والمحتوى والإعلانات للقطاع الصحي والعيادات والمراكز الطبية.
-            </p>
-
-            {/* Social icons */}
-            <div className="flex items-center gap-2.5 pt-2">
-              {socialLinks.map((s) => {
-                const Icon = s.icon;
-                return (
-                  <a
-                    key={s.label}
-                    href={s.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-8 h-8 rounded-full bg-[var(--color-bg-elevated)] border border-[var(--color-border)] flex items-center justify-center text-[var(--color-ink-soft)] hover:text-[var(--color-accent)] hover:border-[var(--color-accent)] transition-colors"
-                    aria-label={s.label}
-                  >
-                    <Icon className="w-3.5 h-3.5" />
-                  </a>
-                );
-              })}
-            </div>
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-[var(--color-border-strong)]">
+          {/* Brand */}
+          <div className="font-display text-xl font-bold text-[var(--color-ink)]">
+            Copyway
           </div>
 
-          {/* Quick links */}
-          <div className="md:col-span-3 space-y-3 text-right">
-            <h4 className="font-display text-sm font-bold text-[var(--color-ink)]">
-              أقسام الصفحة
-            </h4>
-            <ul className="space-y-2 text-xs text-[var(--color-ink-soft)]">
-              <li>
-                <a href="#hero" className="hover:text-[var(--color-accent)] transition-colors">
-                  الكورس
-                </a>
-              </li>
-              <li>
-                <a href="#curriculum" className="hover:text-[var(--color-accent)] transition-colors">
-                  ماذا ستتعلم؟
-                </a>
-              </li>
-              <li>
-                <a href="#instructor" className="hover:text-[var(--color-accent)] transition-colors">
-                  عن المحاضر
-                </a>
-              </li>
-              <li>
-                <a href="#portfolio" className="hover:text-[var(--color-accent)] transition-colors">
-                  سابقة الأعمال
-                </a>
-              </li>
-              <li>
-                <a href="#faq" className="hover:text-[var(--color-accent)] transition-colors">
-                  الأسئلة الشائعة
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Contact & Support */}
-          <div className="md:col-span-4 space-y-3 text-right">
-            <h4 className="font-display text-sm font-bold text-[var(--color-ink)]">
-              تواصل واستفسارات
-            </h4>
-            <p className="text-xs text-[var(--color-muted)] leading-relaxed">
-              فريق العمل متاح للرد على أي استفسار بخصوص تفاصيل المحتوى والاشتراك وطرق الدفع.
-            </p>
-
+          {/* Navigation Links */}
+          <nav className="flex flex-wrap items-center justify-center gap-6 text-sm font-medium text-[var(--color-ink-soft)]">
+            <a href="#hero" className="hover:text-[var(--color-accent)] transition-colors">
+              الكورس
+            </a>
+            <a href="#instructor" className="hover:text-[var(--color-accent)] transition-colors">
+              المحاضر
+            </a>
             <a
-              href={siteConfig.whatsapp.getLink("مرحبًا، لدي استفسار بخصوص كورس التسويق الطبي")}
+              href={siteConfig.whatsapp.getLink("مرحبًا، أود التواصل بخصوص كورس التسويق الطبي")}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-xs font-bold text-[var(--color-accent)] hover:underline underline-offset-4"
+              className="hover:text-[var(--color-accent)] transition-colors"
             >
-              <MessageCircle className="w-4 h-4" />
-              <span>واتساب المباشر: {siteConfig.whatsapp.number}</span>
+              تواصل معنا
             </a>
+            <a href="#faq" className="hover:text-[var(--color-accent)] transition-colors">
+              الأسئلة الشائعة
+            </a>
+            <span className="hover:text-[var(--color-accent)] cursor-pointer transition-colors">
+              سياسة الخصوصية
+            </span>
+            <span className="hover:text-[var(--color-accent)] cursor-pointer transition-colors">
+              الشروط والأحكام
+            </span>
+          </nav>
+
+          {/* Social */}
+          <div className="flex items-center gap-3">
+            {socialLinks.map((s) => {
+              const Icon = s.icon;
+              return (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-8 h-8 rounded-full bg-[var(--color-bg-elevated)] border border-[var(--color-border)] flex items-center justify-center text-[var(--color-ink-soft)] hover:text-[var(--color-accent)] hover:border-[var(--color-accent)] transition-colors"
+                  aria-label={s.label}
+                >
+                  <Icon className="w-3.5 h-3.5" />
+                </a>
+              );
+            })}
           </div>
         </div>
 
-        {/* Bottom copyright and legal notes */}
-        <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[var(--color-muted)]">
-          <p>© {currentYear} جميع الحقوق محفوظة لـ Copyway & محمد العدوي.</p>
-          <div className="flex items-center gap-4">
-            <span className="hover:underline cursor-pointer">سياسة الخصوصية</span>
-            <span>•</span>
-            <span className="hover:underline cursor-pointer">الشروط والأحكام</span>
-          </div>
+        <div className="pt-6 text-center text-xs text-[var(--color-muted)]">
+          <p>© {new Date().getFullYear()} Copyway. جميع الحقوق محفوظة.</p>
         </div>
       </Container>
     </footer>

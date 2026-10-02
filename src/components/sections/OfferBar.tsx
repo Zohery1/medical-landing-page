@@ -3,18 +3,17 @@
 import React, { useState, useEffect } from "react";
 import { siteConfig } from "@/config/site";
 import { Container } from "@/components/ui/Primitives";
-import { ArrowLeft, Clock } from "lucide-react";
 
 export function OfferBar() {
   const [timeLeft, setTimeLeft] = useState({
-    days: "01",
-    hours: "18",
-    minutes: "42",
-    seconds: "15",
+    days: "00",
+    hours: "00",
+    minutes: "00",
+    seconds: "00",
   });
 
   useEffect(() => {
-    const target = new Date().getTime() + 1000 * 60 * 60 * 42;
+    const target = new Date().getTime() + 1000 * 60 * 60 * 48;
 
     const timer = setInterval(() => {
       const now = new Date().getTime();
@@ -42,45 +41,31 @@ export function OfferBar() {
     <div className="bg-[var(--color-bg-sunken)] border-b border-[var(--color-border-strong)] text-[var(--color-ink)] py-2 text-xs relative z-50">
       <Container size="wide">
         <div className="flex flex-wrap items-center justify-between gap-3">
-          {/* Badge & Message */}
+          {/* Badge & Text */}
           <div className="flex items-center gap-2.5">
-            <span className="px-2 py-0.5 rounded-full bg-[var(--color-accent)] text-white text-[10px] font-semibold tracking-wide uppercase">
-              عرض خاص
+            <span className="px-2.5 py-0.5 rounded-full bg-[var(--color-accent)] text-white text-[11px] font-semibold">
+              خصم لفترة محدودة
             </span>
-            <span className="font-medium text-[var(--color-ink-soft)] text-xs hidden sm:inline">
-              اشترك الآن واحصل على العرض المعتمد لكورس التسويق الطبي
-            </span>
-            <span className="font-medium text-[var(--color-ink-soft)] text-xs sm:hidden">
-              العرض الحالي متاح لفترة محدودة
+            <span className="font-medium text-[var(--color-ink-soft)] text-xs">
+              اشترك الآن واحصل على العرض الحالي
             </span>
           </div>
 
-          {/* Countdown Clock & CTA Link */}
-          <div className="flex items-center gap-3 font-mono text-xs">
-            <div className="flex items-center gap-1.5 text-[var(--color-gold-deep)]">
-              <Clock className="w-3.5 h-3.5 stroke-[1.8]" />
-              <span className="font-sans text-[11px] font-medium hidden md:inline">ينتهي العرض خلال:</span>
-            </div>
+          {/* Countdown Clock */}
+          <div className="flex items-center gap-2 font-mono text-xs">
+            <span className="font-sans text-xs text-[var(--color-gold-deep)] font-medium">
+              ⏳ ينتهي العرض خلال:
+            </span>
 
             <div className="flex items-center gap-1 bg-[var(--color-bg-elevated)] px-2.5 py-0.5 rounded-md border border-[var(--color-border)] text-[var(--color-ink)] font-bold tabular-nums">
-              <span>{timeLeft.days}d</span>
+              <span>{timeLeft.days}</span>
               <span className="text-[var(--color-gold)]">:</span>
-              <span>{timeLeft.hours}h</span>
+              <span>{timeLeft.hours}</span>
               <span className="text-[var(--color-gold)]">:</span>
-              <span>{timeLeft.minutes}m</span>
+              <span>{timeLeft.minutes}</span>
               <span className="text-[var(--color-gold)]">:</span>
-              <span className="text-[var(--color-accent)]">{timeLeft.seconds}s</span>
+              <span className="text-[var(--color-accent)]">{timeLeft.seconds}</span>
             </div>
-
-            <a
-              href={siteConfig.whatsapp.getLink("مرحبًا، أود الاستفادة من العرض الحالي لكورس التسويق الطبي")}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] font-bold font-sans text-xs underline underline-offset-4 mr-1 transition-colors"
-            >
-              <span>احجز مقعدك</span>
-              <ArrowLeft className="w-3 h-3" />
-            </a>
           </div>
         </div>
       </Container>

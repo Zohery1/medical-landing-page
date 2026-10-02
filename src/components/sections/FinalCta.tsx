@@ -1,8 +1,7 @@
 import React from "react";
-import { siteConfig } from "@/config/site";
 import { Container } from "@/components/ui/Primitives";
 import { Button } from "@/components/ui/Button";
-import { PatternBackdrop, DiamondMark } from "@/components/ui/motifs";
+import { PatternBackdrop } from "@/components/ui/motifs";
 
 export function FinalCta() {
   const steps = [
@@ -17,29 +16,22 @@ export function FinalCta() {
   ];
 
   return (
-    <section className="py-24 md:py-32 bg-[var(--color-accent)] text-white relative overflow-hidden">
-      {/* Delicate white girih watermark */}
+    <section className="py-20 md:py-28 bg-[var(--color-accent)] text-white relative overflow-hidden">
+      {/* Subtle girih watermark */}
       <PatternBackdrop variant="white" className="opacity-10" />
 
-      <Container size="default" className="relative z-10 text-center space-y-8">
-        <div className="space-y-3">
-          <span className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-white/80">
-            <span className="w-1.5 h-1.5 rotate-45 bg-white inline-block" />
-            جاهز للانتقال للخطوة التالية؟
-          </span>
+      <Container size="default" className="relative z-10 text-center space-y-6">
+        <h2 className="font-display text-2xl sm:text-4xl lg:text-5xl font-bold leading-tight max-w-3xl mx-auto">
+          جاهز تبدأ في Medical Marketing بطريقة مختلفة؟
+        </h2>
 
-          <h2 className="font-display text-3xl sm:text-5xl lg:text-6xl font-bold leading-[1.15] max-w-3xl mx-auto text-balance">
-            ابدأ رحلتك في التسويق الطبي بمنظومة احترافية تحقق نتائج حقيقية
-          </h2>
-        </div>
-
-        <div className="space-y-4 max-w-2xl mx-auto">
-          <p className="text-base sm:text-lg text-white/90 font-medium">
-            مش هتبدأ من البوست العشوائي...
+        <div className="space-y-3 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-white/95 font-medium">
+            مش هتبدأ من البوست...
           </p>
 
           <p className="text-xs sm:text-sm text-white/80">
-            هتبدأ من مسار العمل المتكامل:
+            هتبدأ من:
           </p>
 
           {/* Clean pipeline pills */}
@@ -51,7 +43,7 @@ export function FinalCta() {
                 </span>
                 {idx < steps.length - 1 && (
                   <span className="text-white/50 text-xs font-bold select-none">
-                    ←
+                    →
                   </span>
                 )}
               </React.Fragment>
@@ -63,16 +55,16 @@ export function FinalCta() {
         <div className="pt-4">
           <Button
             isWhatsApp
-            customMessage="مرحبًا، أنا جاهز للاشتراك في كورس Medical Performance Marketing"
+            customMessage="مرحبًا، أود الاشتراك في كورس Medical Performance Marketing"
             size="lg"
             variant="dark"
-            className="text-base sm:text-lg px-10 py-4 shadow-xl"
+            className="text-base sm:text-lg px-10 py-3.5 shadow-xl"
           >
-            اشترك الآن وتواصل عبر واتساب
+            اشترك الآن
           </Button>
 
-          <p className="text-xs text-white/70 mt-4">
-            دورة مسجلة فورية + تطبيقات عملية + حقيبة الـ 23 مخرج وقالب
+          <p className="text-xs text-white/80 mt-3 font-medium">
+            ابدأ رحلتك في Medical Performance Marketing
           </p>
         </div>
       </Container>

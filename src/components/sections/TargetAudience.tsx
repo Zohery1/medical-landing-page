@@ -4,51 +4,42 @@ import { DiamondMark } from "@/components/ui/motifs";
 
 export function TargetAudience() {
   const marketingRoles = [
-    { title: "Content Creators", desc: "لو عايز تدخل تخصص طبي واضح ومطلوب بقوة في سوق الخليج ومصر." },
-    { title: "Copywriters", desc: "عندك أساسيات الكتابة وعايز تفهم أسرار وسيكولوجية الرعاية الصحية والـ Medical Market." },
-    { title: "Social Media Specialists", desc: "بتدير صفحات أطباء أو مراكز ومحتاج استراتيجية محتوى تجلب مرضى حقيقيين." },
-    { title: "Media Buyers", desc: "عايز تفهم صياغة الرسالة والـ Creative ومسار التحويل مش مجرد إطلاق إعلان." },
-    { title: "Freelancers", desc: "استلمت عميل طبي أو مركز تجميل ومحتاج خارطة طريق تبدأ منها وتضمن له النتائج." },
-    { title: "Agency Owners", desc: "عايز تضيف باقة Medical Performance Marketing متكاملة وذات تسعير عالي لخدماتك." },
+    { title: "Content Creators", desc: "عايز تدخل تخصص طبي واضح." },
+    { title: "Copywriters", desc: "عندك أساسيات الكتابة وعايز تفهم الـMedical Market." },
+    { title: "Social Media Specialists", desc: "بتدير صفحات أطباء أو عيادات أو مراكز." },
+    { title: "Media Buyers", desc: "عايز تفهم الرسالة والـCreative والـFunnel مش الإعلان فقط." },
+    { title: "Freelancers", desc: "استلمت Client طبي ومش عارف تبدأ منين." },
+    { title: "Agency Owners", desc: "عايز تضيف Medical Marketing لخدماتك." },
   ];
 
   const medicalRoles = [
-    { title: "الأطباء وأصحاب العيادات", desc: "عايز تبني براند طبي موثوق وتفهم كيف تقيم فريق التسويق بدون أن تُخدع بالأرقام السطحية." },
-    { title: "مديرو العيادات والمراكز", desc: "مسؤول عن تطوير الإيرادات ورفع معدل حضور المرضى وملء جدول مواعيد الأطباء." },
-    { title: "In-house Marketing Teams", desc: "الفرق التسويقية الداخلية في المراكز الطبية التي تبحث عن منهجية عمل موحدة وقابلة للقياس." },
-    { title: "أفراد الفرق الطبية للمحتوى", desc: "الصيادلة، أطباء الأسنان، والتمريض المكلّفون بإنتاج وتدقيق المحتوى والتواصل الطبي." },
+    "الأطباء",
+    "مديري العيادات والمراكز",
+    "In-house Marketing Teams",
+    "أفراد الفرق الطبية المسؤولين عن المحتوى والتسويق",
   ];
 
   return (
     <Section
       id="audience"
-      eyebrow="الفئات المستهدفة"
-      title="لمن هذا الكورس؟"
-      description="تم تصميم هذا المنهج لخدمة مسارين متكاملين في صناعة الرعاية الصحية والتسويق المتخصص"
+      eyebrow="لمن هذا الكورس؟"
+      title="الكورس معمول لـ:"
       tone="sunken"
     >
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
         {/* Track 1: Marketing & Content */}
-        <div className="space-y-6">
-          <div className="pb-3 border-b border-[var(--color-border-strong)]">
-            <span className="text-xs font-semibold text-[var(--color-accent)] uppercase tracking-wider block mb-1">
-              المسار الأول
-            </span>
-            <h3 className="font-display text-2xl font-bold text-[var(--color-ink)]">
-              Marketing & Content Professionals
-            </h3>
-          </div>
+        <div className="space-y-6 text-right">
+          <h3 className="font-display text-2xl font-bold text-[var(--color-ink)] pb-3 border-b border-[var(--color-border-strong)]">
+            Marketing & Content
+          </h3>
 
           <div className="divide-y divide-[var(--color-border)]">
             {marketingRoles.map((role) => (
-              <div key={role.title} className="py-4 first:pt-0 last:pb-0 text-right">
-                <div className="flex items-center gap-2 mb-1">
-                  <DiamondMark className="text-xs" />
-                  <h4 className="font-display text-sm font-bold text-[var(--color-ink)]">
-                    {role.title}
-                  </h4>
-                </div>
-                <p className="text-xs sm:text-sm text-[var(--color-muted)] leading-relaxed ps-4">
+              <div key={role.title} className="py-4 first:pt-0 last:pb-0">
+                <h4 className="font-display text-base font-bold text-[var(--color-ink)] mb-1">
+                  {role.title}
+                </h4>
+                <p className="text-sm text-[var(--color-muted)] leading-relaxed">
                   {role.desc}
                 </p>
               </div>
@@ -57,28 +48,18 @@ export function TargetAudience() {
         </div>
 
         {/* Track 2: Medical Sector */}
-        <div className="space-y-6">
-          <div className="pb-3 border-b border-[var(--color-border-strong)]">
-            <span className="text-xs font-semibold text-[var(--color-gold-deep)] uppercase tracking-wider block mb-1">
-              المسار الثاني
-            </span>
-            <h3 className="font-display text-2xl font-bold text-[var(--color-ink)]">
-              Medical Sector & Clinics
-            </h3>
-          </div>
+        <div className="space-y-6 text-right">
+          <h3 className="font-display text-2xl font-bold text-[var(--color-ink)] pb-3 border-b border-[var(--color-border-strong)]">
+            Medical Sector
+          </h3>
 
           <div className="divide-y divide-[var(--color-border)]">
             {medicalRoles.map((role) => (
-              <div key={role.title} className="py-4 first:pt-0 last:pb-0 text-right">
-                <div className="flex items-center gap-2 mb-1">
-                  <DiamondMark className="text-xs text-[var(--color-gold-deep)]" />
-                  <h4 className="font-display text-sm font-bold text-[var(--color-ink)]">
-                    {role.title}
-                  </h4>
-                </div>
-                <p className="text-xs sm:text-sm text-[var(--color-muted)] leading-relaxed ps-4">
-                  {role.desc}
-                </p>
+              <div key={role} className="py-4.5 first:pt-0 last:pb-0 flex items-center gap-3">
+                <DiamondMark className="text-xs text-[var(--color-gold-deep)]" />
+                <h4 className="font-display text-base font-bold text-[var(--color-ink)]">
+                  {role}
+                </h4>
               </div>
             ))}
           </div>

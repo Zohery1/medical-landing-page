@@ -32,12 +32,10 @@ export const siteConfig = {
   },
   navLinks: [
     { label: "الكورس", href: "#hero" },
-    { label: "المشكلة", href: "#problem" },
     { label: "ماذا ستتعلم؟", href: "#curriculum" },
-    { label: "التحديث الجديد", href: "#update" },
     { label: "المحاضر", href: "#instructor" },
-    { label: "سابقة الأعمال", href: "#portfolio" },
     { label: "آراء الطلاب", href: "#testimonials" },
+    { label: "سابقة الأعمال", href: "#portfolio" },
     { label: "الأسئلة الشائعة", href: "#faq" },
   ],
 };

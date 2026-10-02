@@ -11,12 +11,15 @@ export function FloatingWhatsApp() {
     <div className="fixed bottom-6 left-6 z-50 flex items-end gap-3 select-none">
       {/* Tooltip bubble */}
       {showTooltip && (
-        <div className="relative bg-[var(--color-bg-elevated)] text-[var(--color-ink)] px-4 py-2.5 rounded-2xl shadow-xl border border-[var(--color-border-strong)] text-xs font-semibold max-w-[210px] text-right flex items-center justify-between gap-2 animate-bounce-subtle">
-          <span>💬 عندك سؤال عن الكورس؟ تواصل معنا</span>
+        <div className="relative bg-[var(--color-bg-elevated)] text-[var(--color-ink)] px-4 py-2.5 rounded-2xl shadow-xl border border-[var(--color-border-strong)] text-xs font-semibold max-w-[220px] text-right flex items-center justify-between gap-2">
+          <div>
+            <div className="text-[var(--color-ink)]">💬 عندك سؤال عن الكورس؟</div>
+            <div className="text-[11px] text-[var(--color-gold-deep)]">تواصل معنا على WhatsApp</div>
+          </div>
           <button
             onClick={() => setShowTooltip(false)}
             className="text-[var(--color-muted)] hover:text-[var(--color-ink)] p-0.5"
-            aria-label="إغلاق التنبيه"
+            aria-label="إغلاق"
           >
             <X className="w-3.5 h-3.5" />
           </button>
@@ -32,7 +35,7 @@ export function FloatingWhatsApp() {
         target="_blank"
         rel="noopener noreferrer"
         className="w-14 h-14 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-lg shadow-emerald-500/30 hover:scale-110 active:scale-95 transition-all duration-200 relative group cursor-pointer"
-        aria-label="تواصل معنا عبر واتساب"
+        aria-label="تواصل معنا على WhatsApp"
       >
         <MessageCircle className="w-7 h-7 fill-current" />
 

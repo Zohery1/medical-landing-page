@@ -1,74 +1,114 @@
 import React from "react";
 import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
-import { Check, Minus } from "lucide-react";
 
 export function FreeVsPaid() {
-  const comparison = [
-    {
-      feature: "الهدف والمدى",
-      free: "تجربة تمهيدية للتعرف على طريقة التفكير وأسلوب التدريب.",
-      paid: "المنظومة الاحترافية المتكاملة من دراسة السوق للقياس المالي.",
-    },
-    {
-      feature: "المحاضرات المسجلة",
-      free: "جلسة تمهيدية في تفريغ الأفكار (Brain Dump) والبحث الأولي.",
-      paid: "13 محاضرة أساسية مسجلة + كافة محاضرات التحديث الجديد.",
-    },
-    {
-      feature: "التطبيقات والمخرجات",
-      free: "أمثلة عامة بدون ملفات تطبيقية مخصصة.",
-      paid: "حقيبة الـ 23 مخرج وقالب عملي (Marketing Toolkit) جاهزة.",
-    },
-    {
-      feature: "الشمولية الإعلانية",
-      free: "مقتصر على المفاهيم المبدئية للمحتوى.",
-      paid: "يغطي الـ Paid Ads، وإعادة الاستهداف، ومسار الـ Funnel والـ CRO.",
-    },
-    {
-      feature: "الذكاء الاصطناعي",
-      free: "نظرة عامة على أدوات الـ AI.",
-      paid: "AI Native Frameworks متكاملة وقوالب Prompts طبية حصرية.",
-    },
+  const freeItems = [
+    "Brain Dump",
+    "Research",
+    "طريقة التفكير",
+    "تنظيم المعلومات",
+  ];
+
+  const paidCurrent = [
+    "Market",
+    "Audience",
+    "Strategy",
+    "Content",
+    "Copywriting",
+  ];
+
+  const paidFuture = [
+    "Business",
+    "Patient Journey",
+    "Paid",
+    "Funnel",
+    "CRO",
+    "Measurement",
+    "AI Workflow",
   ];
 
   return (
     <Section
       id="free-vs-paid"
-      eyebrow="المقارنة والخيارات"
-      title="التدريب المجاني مقابل الكورس المدفوع"
-      description="إذا كنت قد شاهدت التدريب المجاني التمهيدي، فإليك ما تقدمه لك المنظومة المتكاملة"
+      eyebrow="التدريب المجاني vs الكورس"
+      title="مقارنة بين التدريب المجاني والكورس المدفوع"
       tone="plain"
     >
-      <div className="max-w-4xl mx-auto divide-y divide-[var(--color-border-strong)] border-y border-[var(--color-border-strong)]">
-        {comparison.map((item, idx) => (
-          <div key={idx} className="py-6 grid grid-cols-1 md:grid-cols-12 gap-4 items-start text-right">
-            <div className="md:col-span-3">
-              <span className="font-display text-sm font-bold text-[var(--color-ink)]">
-                {item.feature}
-              </span>
-            </div>
-            <div className="md:col-span-4 text-xs sm:text-sm text-[var(--color-muted)] leading-relaxed">
-              <span className="font-bold text-[var(--color-muted)] block md:hidden mb-1">التدريب المجاني:</span>
-              {item.free}
-            </div>
-            <div className="md:col-span-5 text-xs sm:text-sm text-[var(--color-ink)] font-medium leading-relaxed">
-              <span className="font-bold text-[var(--color-accent)] block md:hidden mb-1">الكورس المدفوع:</span>
-              {item.paid}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16 items-start text-right">
+        {/* التدريب المجاني */}
+        <div className="p-8 rounded-2xl bg-[var(--color-bg-sunken)]/60 border border-[var(--color-border)] space-y-6">
+          <h3 className="font-display text-xl font-bold text-[var(--color-ink)] pb-3 border-b border-[var(--color-border-strong)]">
+            التدريب المجاني
+          </h3>
+
+          <div className="space-y-3">
+            <p className="text-sm font-semibold text-[var(--color-ink)]">
+              تجربة تمهيدية تساعدك تفهم:
+            </p>
+            <ul className="space-y-2 text-sm text-[var(--color-muted)] ps-4">
+              {freeItems.map((item) => (
+                <li key={item} className="list-disc">
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="pt-4 border-t border-[var(--color-border-strong)]">
+            <span className="text-xs font-bold text-[var(--color-gold-deep)] block mb-1">
+              الهدف:
+            </span>
+            <p className="text-sm text-[var(--color-ink)] font-medium">
+              تاخد فكرة عن طريقة التدريب.
+            </p>
+          </div>
+        </div>
+
+        {/* الكورس المدفوع */}
+        <div className="p-8 rounded-2xl bg-[var(--color-bg-elevated)] border border-[var(--color-accent)] shadow-xs space-y-6">
+          <h3 className="font-display text-xl font-bold text-[var(--color-accent)] pb-3 border-b border-[var(--color-border)]">
+            الكورس المدفوع
+          </h3>
+
+          <div className="space-y-3">
+            <p className="font-display text-base font-bold text-[var(--color-ink)]">
+              المنظومة الكاملة:
+            </p>
+            <p className="text-sm font-semibold text-[var(--color-gold-deep)]">
+              13 محاضرة مسجلة حاليًا
+            </p>
+            <p className="text-xs font-bold text-[var(--color-muted)]">
+              من:
+            </p>
+            <div className="flex flex-wrap items-center gap-1.5 font-mono text-xs font-bold text-[var(--color-ink)]">
+              {paidCurrent.map((s, idx) => (
+                <React.Fragment key={s}>
+                  <span className="px-2 py-0.5 rounded bg-[var(--color-bg-sunken)] border border-[var(--color-border)]">
+                    {s}
+                  </span>
+                  {idx < paidCurrent.length - 1 && <span>←</span>}
+                </React.Fragment>
+              ))}
             </div>
           </div>
-        ))}
-      </div>
 
-      <div className="mt-12 text-center">
-        <Button
-          isWhatsApp
-          customMessage="مرحبًا، أود الاشتراك في الكورس المدفوع للمحتوى والتسويق الطبي"
-          size="lg"
-          variant="terracotta"
-        >
-          اشترك في الكورس المتكامل الآن
-        </Button>
+          <div className="space-y-2 pt-2 border-t border-[var(--color-border)]">
+            <p className="text-xs font-bold text-[var(--color-muted)]">
+              مع التوسع المقترح إلى:
+            </p>
+            <div className="flex flex-wrap items-center gap-1.5 font-mono text-xs font-bold text-[var(--color-accent)]">
+              {paidFuture.map((s, idx) => (
+                <React.Fragment key={s}>
+                  <span className="px-2 py-0.5 rounded bg-[var(--color-accent)]/10 border border-[var(--color-accent)]/20">
+                    {s}
+                  </span>
+                  {idx < paidFuture.length - 1 && <span>←</span>}
+                </React.Fragment>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </Section>
   );
