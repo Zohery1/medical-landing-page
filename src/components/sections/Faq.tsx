@@ -3,6 +3,8 @@
 import React, { useState } from "react";
 import { Section } from "@/components/ui/Section";
 import { ChevronDown } from "lucide-react";
+import { motion, AnimatePresence } from "motion/react";
+import { Reveal } from "@/components/ui/motion-primitives";
 
 export function Faq() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -69,27 +71,45 @@ export function Faq() {
         {faqs.map((item, idx) => {
           const isOpen = openIndex === idx;
           return (
-            <div key={idx} className="py-5 text-right">
-              <button
-                onClick={() => setOpenIndex(isOpen ? null : idx)}
-                className="w-full text-right flex items-center justify-between gap-4 cursor-pointer select-none group"
-              >
-                <span className="font-display text-base sm:text-lg font-bold text-[var(--color-ink)] group-hover:text-[var(--color-accent)] transition-colors">
-                  {item.q}
-                </span>
-                <ChevronDown
-                  className={`w-4 h-4 text-[var(--color-gold)] shrink-0 transition-transform duration-200 ${
-                    isOpen ? "rotate-180 text-[var(--color-accent)]" : ""
-                  }`}
-                />
-              </button>
+            <Reveal key={idx} direction="up" delay={idx * 0.03}>
+              <div className="py-5 text-right">
+                <button
+                  onClick={() => setOpenIndex(isOpen ? null : idx)}
+                  className="w-full text-right flex items-center justify-between gap-4 cursor-pointer select-none group"
+                >
+                  <span className="font-display text-base sm:text-lg font-bold text-[var(--color-ink)] group-hover:text-[var(--color-accent)] transition-colors">
+                    {item.q}
+                  </span>
+                  <motion.div
+                    animate={{ rotate: isOpen ? 180 : 0 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                    className="w-7 h-7 rounded-full bg-[var(--color-bg-sunken)] flex items-center justify-center shrink-0 border border-[var(--color-border)]"
+                  >
+                    <ChevronDown
+                      className={`w-4 h-4 transition-colors ${
+                        isOpen ? "text-[var(--color-accent)]" : "text-[var(--color-gold)]"
+                      }`}
+                    />
+                  </motion.div>
+                </button>
 
-              {isOpen && (
-                <div className="pt-3 pb-2 text-xs sm:text-sm text-[var(--color-muted)] leading-relaxed max-w-[65ch]">
-                  {item.a}
-                </div>
-              )}
-            </div>
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                      className="overflow-hidden"
+                    >
+                      <div className="pt-3 pb-2 text-xs sm:text-sm text-[var(--color-muted)] leading-relaxed max-w-[65ch]">
+                        {item.a}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            </Reveal>
           );
         })}
       </div>

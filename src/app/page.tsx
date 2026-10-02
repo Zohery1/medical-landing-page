@@ -22,9 +22,14 @@ import { FinalCta } from "@/components/sections/FinalCta";
 import { Footer } from "@/components/sections/Footer";
 import { FloatingWhatsApp } from "@/components/sections/FloatingWhatsApp";
 
+import { ScrollProgress } from "@/components/ui/motion-primitives";
+
 export default function LandingPage() {
   return (
     <main className="min-h-screen bg-[var(--color-bg)] text-[var(--color-ink)] selection:bg-[var(--color-accent)] selection:text-white">
+      {/* Scroll Progress Laser Line */}
+      <ScrollProgress />
+
       {/* 02 — OFFER BAR (Sticky at top) */}
       <OfferBar />
 

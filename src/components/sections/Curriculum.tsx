@@ -3,6 +3,8 @@
 import React, { useState } from "react";
 import { Section } from "@/components/ui/Section";
 import { ChevronDown, Check } from "lucide-react";
+import { motion, AnimatePresence } from "motion/react";
+import { Reveal } from "@/components/ui/motion-primitives";
 
 export function Curriculum() {
   const [openModuleIndex, setOpenModuleIndex] = useState<number | null>(0);
@@ -89,61 +91,95 @@ export function Curriculum() {
         {modules.map((mod, idx) => {
           const isOpen = openModuleIndex === idx;
           return (
-            <div
-              key={mod.part}
-              className="border-b border-[var(--color-border-strong)] pb-4 last:border-b-0"
-            >
-              <button
-                onClick={() => setOpenModuleIndex(isOpen ? null : idx)}
-                className="w-full py-4 text-right flex items-center justify-between gap-4 cursor-pointer select-none group"
+            <Reveal key={mod.part} direction="up" delay={idx * 0.08}>
+              <motion.div
+                animate={{
+                  borderColor: isOpen ? "var(--color-accent)" : "var(--color-border-strong)",
+                  backgroundColor: isOpen ? "var(--color-bg-elevated)" : "transparent",
+                }}
+                className="border-b rounded-2xl p-4 transition-all duration-300"
               >
-                <div className="flex items-center gap-4">
-                  <span className="font-mono text-sm font-bold text-[var(--color-gold-deep)]">
-                    0{idx + 1}
-                  </span>
-                  <div>
-                    <span className="text-xs font-semibold text-[var(--color-gold-deep)] block mb-0.5">
-                      {mod.part}
-                    </span>
-                    <h3 className="font-display text-lg sm:text-xl font-bold text-[var(--color-ink)] group-hover:text-[var(--color-accent)] transition-colors">
-                      {mod.title}
-                    </h3>
-                  </div>
-                </div>
-
-                <ChevronDown
-                  className={`w-4 h-4 text-[var(--color-gold)] transition-transform duration-200 shrink-0 ${
-                    isOpen ? "rotate-180 text-[var(--color-accent)]" : ""
-                  }`}
-                />
-              </button>
-
-              {isOpen && (
-                <div className="pt-2 pb-6 ps-8 space-y-4">
-                  <div className="text-xs font-bold text-[var(--color-gold-deep)]">
-                    هتتعلم:
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                    {mod.topics.map((t, tIdx) => (
-                      <div key={tIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-[var(--color-ink-soft)]">
-                        <Check className="w-4 h-4 text-[var(--color-accent)] shrink-0 mt-0.5" />
-                        <span className="leading-relaxed">{t}</span>
-                      </div>
-                    ))}
-                  </div>
-
-                  {mod.application && (
-                    <div className="p-4 rounded-xl bg-[var(--color-gold)]/10 border border-[var(--color-gold)]/20 text-xs sm:text-sm text-[var(--color-ink)] font-medium">
-                      <strong className="text-[var(--color-gold-deep)] font-semibold block mb-0.5">
-                        التطبيق:
-                      </strong>
-                      {mod.application}
+                <button
+                  onClick={() => setOpenModuleIndex(isOpen ? null : idx)}
+                  className="w-full py-2 text-right flex items-center justify-between gap-4 cursor-pointer select-none group"
+                >
+                  <div className="flex items-center gap-4">
+                    <motion.span
+                      animate={{ scale: isOpen ? 1.15 : 1, color: isOpen ? "var(--color-accent)" : "var(--color-gold-deep)" }}
+                      className="font-mono text-sm font-bold w-7"
+                    >
+                      0{idx + 1}
+                    </motion.span>
+                    <div>
+                      <span className="text-xs font-semibold text-[var(--color-gold-deep)] block mb-0.5">
+                        {mod.part}
+                      </span>
+                      <h3 className="font-display text-lg sm:text-xl font-bold text-[var(--color-ink)] group-hover:text-[var(--color-accent)] transition-colors">
+                        {mod.title}
+                      </h3>
                     </div>
+                  </div>
+
+                  <motion.div
+                    animate={{ rotate: isOpen ? 180 : 0 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                    className="w-8 h-8 rounded-full bg-[var(--color-bg-sunken)] flex items-center justify-center shrink-0 border border-[var(--color-border)]"
+                  >
+                    <ChevronDown
+                      className={`w-4 h-4 transition-colors ${
+                        isOpen ? "text-[var(--color-accent)]" : "text-[var(--color-gold)]"
+                      }`}
+                    />
+                  </motion.div>
+                </button>
+
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                      className="overflow-hidden"
+                    >
+                      <div className="pt-4 pb-4 ps-8 space-y-4">
+                        <div className="text-xs font-bold text-[var(--color-gold-deep)]">
+                          هتتعلم:
+                        </div>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                          {mod.topics.map((t, tIdx) => (
+                            <motion.div
+                              key={tIdx}
+                              initial={{ opacity: 0, y: 10 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              transition={{ delay: tIdx * 0.03 }}
+                              className="flex items-start gap-2.5 text-xs sm:text-sm text-[var(--color-ink-soft)]"
+                            >
+                              <Check className="w-4 h-4 text-[var(--color-accent)] shrink-0 mt-0.5" />
+                              <span className="leading-relaxed">{t}</span>
+                            </motion.div>
+                          ))}
+                        </div>
+
+                        {mod.application && (
+                          <motion.div
+                            initial={{ opacity: 0, scale: 0.98 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            className="p-4 rounded-xl bg-[var(--color-gold)]/10 border border-[var(--color-gold)]/30 text-xs sm:text-sm text-[var(--color-ink)] font-medium"
+                          >
+                            <strong className="text-[var(--color-gold-deep)] font-semibold block mb-0.5">
+                              التطبيق:
+                            </strong>
+                            {mod.application}
+                          </motion.div>
+                        )}
+                      </div>
+                    </motion.div>
                   )}
-                </div>
-              )}
-            </div>
+                </AnimatePresence>
+              </motion.div>
+            </Reveal>
           );
         })}
       </div>
