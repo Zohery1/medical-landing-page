@@ -64,7 +64,7 @@ export function AiWorkflow() {
               هو أداة داخل Workflow منظم:
             </p>
 
-            <div dir="ltr" className="flex flex-wrap items-center justify-center gap-2 pt-2">
+            <div dir="rtl" className="flex flex-wrap items-center justify-center gap-2 pt-2">
               {workflow.map((step, idx) => (
                 <React.Fragment key={step.name}>
                   <div className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[var(--color-bg-sunken)] border border-[var(--color-border)] hover:border-[var(--color-accent)] hover:-translate-y-0.5 transition-all duration-150 shadow-2xs">
@@ -78,7 +78,7 @@ export function AiWorkflow() {
 
                   {idx < workflow.length - 1 && (
                     <span className="text-[var(--color-accent)] font-bold text-base select-none">
-                      →
+                      ←
                     </span>
                   )}
                 </React.Fragment>

@@ -44,13 +44,13 @@ export function FinalCta() {
             </p>
           </Reveal>
 
-          {/* Clean pipeline pills in natural LTR order */}
+          {/* Clean pipeline pills flowing from Right to Left (RTL) */}
           <Reveal direction="up" delay={0.2}>
-            <div dir="ltr" className="flex flex-wrap items-center justify-center gap-2 pt-1">
+            <div dir="rtl" className="flex flex-wrap items-center justify-center gap-2 pt-1">
               {steps.map((s, idx) => (
                 <React.Fragment key={s.name}>
                   <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 border border-white/25 hover:bg-white/20 transition-colors duration-150 shadow-xs">
-                    <span className="font-mono text-[10px] text-white/60 font-bold">
+                    <span className="font-mono text-[10px] text-white/70 font-bold">
                       {s.num}
                     </span>
                     <span className="font-mono text-xs font-semibold text-white">
@@ -59,8 +59,8 @@ export function FinalCta() {
                   </div>
 
                   {idx < steps.length - 1 && (
-                    <span className="text-white/60 text-xs font-bold select-none">
-                      →
+                    <span className="text-white/70 text-xs font-bold select-none">
+                      ←
                     </span>
                   )}
                 </React.Fragment>

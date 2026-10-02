@@ -37,14 +37,14 @@ export function BigMap() {
           {journeySteps.map((step, index) => (
             <React.Fragment key={step.num}>
               <div className="p-3.5 sm:p-4 rounded-xl bg-[var(--color-bg-elevated)] border border-[var(--color-border)] hover:border-[var(--color-accent)] hover:shadow-md transition-all duration-150 flex items-center justify-between group cursor-default">
+                {/* Step badge on the right (start of RTL line) */}
+                <span className="font-mono text-xs font-bold text-[var(--color-gold-deep)] bg-[var(--color-bg-sunken)] px-2.5 py-1 rounded-md border border-[var(--color-border)] group-hover:border-[var(--color-accent)]/40 group-hover:text-[var(--color-accent)] transition-colors shrink-0">
+                  الخطوة {step.num}
+                </span>
+
                 {/* Step title in English */}
                 <span className="font-display text-sm sm:text-base font-bold text-[var(--color-ink)] group-hover:text-[var(--color-accent)] transition-colors">
                   {step.title}
-                </span>
-
-                {/* Step badge on the left */}
-                <span className="font-mono text-xs font-bold text-[var(--color-gold-deep)] bg-[var(--color-bg-sunken)] px-2.5 py-1 rounded-md border border-[var(--color-border)] group-hover:border-[var(--color-accent)]/40 group-hover:text-[var(--color-accent)] transition-colors shrink-0">
-                  الخطوة {step.num}
                 </span>
               </div>
 

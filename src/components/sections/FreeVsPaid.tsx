@@ -69,7 +69,7 @@ export function FreeVsPaid() {
           </div>
         </Reveal>
 
-        {/* الكورس المدفوع */}
+        {/* الكورس المدفوع — مرتب من اليمين للشمال */}
         <Reveal direction="up" delay={0.2}>
           <div className="p-8 rounded-2xl bg-[var(--color-bg-elevated)] border-2 border-[var(--color-accent)] shadow-md space-y-6 relative overflow-hidden hover:shadow-xl transition-shadow duration-200">
             <div className="absolute top-0 right-0 left-0 h-1 bg-gradient-to-l from-[var(--color-accent)] via-[var(--color-gold)] to-[var(--color-accent)]" />
@@ -91,14 +91,15 @@ export function FreeVsPaid() {
               <p className="text-xs font-bold text-[var(--color-muted)]">
                 من:
               </p>
-              <div dir="ltr" className="flex flex-wrap items-center gap-1.5 font-mono text-xs font-bold">
+              {/* RTL flow: Starts at right with 01 Market, arrows point left */}
+              <div dir="rtl" className="flex flex-wrap items-center gap-1.5 font-mono text-xs font-bold">
                 {paidCurrent.map((s, idx) => (
                   <React.Fragment key={s.name}>
-                    <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-[var(--color-bg-sunken)] border border-[var(--color-border)] text-[var(--color-ink)]">
+                    <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-[var(--color-bg-sunken)] border border-[var(--color-border)] text-[var(--color-ink)] hover:border-[var(--color-accent)] transition-colors">
                       <span className="text-[10px] text-[var(--color-gold-deep)]">{s.num}</span>
                       <span>{s.name}</span>
                     </span>
-                    {idx < paidCurrent.length - 1 && <span className="text-[var(--color-accent)] font-bold">→</span>}
+                    {idx < paidCurrent.length - 1 && <span className="text-[var(--color-accent)] font-bold text-sm">←</span>}
                   </React.Fragment>
                 ))}
               </div>
@@ -108,14 +109,15 @@ export function FreeVsPaid() {
               <p className="text-xs font-bold text-[var(--color-muted)]">
                 مع التوسع المقترح إلى:
               </p>
-              <div dir="ltr" className="flex flex-wrap items-center gap-1.5 font-mono text-xs font-bold">
+              {/* RTL flow: Starts at right with 01 Business, arrows point left */}
+              <div dir="rtl" className="flex flex-wrap items-center gap-1.5 font-mono text-xs font-bold">
                 {paidFuture.map((s, idx) => (
                   <React.Fragment key={s.name}>
-                    <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-[var(--color-accent)]/10 border border-[var(--color-accent)]/20 text-[var(--color-accent)]">
+                    <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-[var(--color-accent)]/10 border border-[var(--color-accent)]/20 text-[var(--color-accent)] hover:bg-[var(--color-accent)]/20 transition-colors">
                       <span className="text-[10px] text-[var(--color-gold-deep)]">{s.num}</span>
                       <span>{s.name}</span>
                     </span>
-                    {idx < paidFuture.length - 1 && <span className="text-[var(--color-accent)] font-bold">→</span>}
+                    {idx < paidFuture.length - 1 && <span className="text-[var(--color-accent)] font-bold text-sm">←</span>}
                   </React.Fragment>
                 ))}
               </div>

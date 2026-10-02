@@ -33,25 +33,25 @@ export function WhyDifferent() {
             <span className="font-display text-sm font-bold text-red-600 block">
               مش:
             </span>
-            <div dir="ltr" className="flex items-center gap-2 font-mono text-base font-bold text-[var(--color-muted)]">
+            <div dir="rtl" className="flex items-center gap-2 font-mono text-base font-bold text-[var(--color-muted)]">
               <span className="px-3 py-1 rounded-md bg-[var(--color-bg-elevated)] border border-[var(--color-border)]">Post</span>
-              <span className="text-red-400">→</span>
+              <span className="text-red-400">←</span>
               <span className="px-3 py-1 rounded-md bg-[var(--color-bg-elevated)] border border-[var(--color-border)]">Post</span>
-              <span className="text-red-400">→</span>
+              <span className="text-red-400">←</span>
               <span className="px-3 py-1 rounded-md bg-[var(--color-bg-elevated)] border border-[var(--color-border)]">Post</span>
             </div>
           </div>
         </Reveal>
 
-        {/* لكن */}
+        {/* لكن — مرتب من اليمين للشمال */}
         <Reveal direction="up" delay={0.2}>
           <div className="p-6 sm:p-8 rounded-2xl bg-[var(--color-bg-elevated)] border-2 border-[var(--color-accent)] shadow-md space-y-4">
             <span className="font-display text-base font-bold text-[var(--color-accent)] block">
               لكن:
             </span>
 
-            {/* Pipeline displayed in natural left-to-right English flow */}
-            <div dir="ltr" className="flex flex-wrap items-center gap-2 sm:gap-2.5">
+            {/* Pipeline displayed from right to left (RTL) */}
+            <div dir="rtl" className="flex flex-wrap items-center gap-2 sm:gap-2.5">
               {steps.map((s, idx) => (
                 <React.Fragment key={s.name}>
                   <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[var(--color-bg-sunken)] border border-[var(--color-border)] hover:border-[var(--color-accent)] hover:bg-[var(--color-bg-elevated)] transition-colors duration-150 group shadow-2xs">
@@ -65,7 +65,7 @@ export function WhyDifferent() {
 
                   {idx < steps.length - 1 && (
                     <span className="text-[var(--color-accent)] font-bold text-sm select-none">
-                      →
+                      ←
                     </span>
                   )}
                 </React.Fragment>

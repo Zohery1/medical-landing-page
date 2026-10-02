@@ -6,7 +6,6 @@ import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
 import { DiamondMark } from "@/components/ui/motifs";
 import { User, Sparkles } from "lucide-react";
-import { motion } from "motion/react";
 import { Reveal, FloatingElement, ShimmerButtonWrapper } from "@/components/ui/motion-primitives";
 
 export function Instructor() {
@@ -26,36 +25,36 @@ export function Instructor() {
       tone="sunken"
     >
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-        {/* Arch Frame Portrait - Properly Proportioned */}
+        {/* Arch Frame Portrait - Wider and Relaxed (not tall or stretched) */}
         <div className="lg:col-span-5 flex justify-center">
-          <FloatingElement distance={8} duration={5}>
-            <div className="relative w-full max-w-[280px] sm:max-w-[300px]">
-              {/* Arch frame outer border */}
-              <div className="arch relative border-2 border-[var(--color-gold)]/40 bg-[var(--color-bg-sunken)] p-2 shadow-xl rounded-t-[140px] rounded-b-2xl">
-                <div className="arch relative overflow-hidden bg-gradient-to-b from-[var(--color-bg-elevated)] to-[var(--color-bg-sunken)] border border-[var(--color-gold)]/20 rounded-t-[132px] rounded-b-xl flex flex-col items-center justify-between p-6 text-center h-[340px]">
+          <FloatingElement distance={6} duration={5}>
+            <div className="relative w-full max-w-[360px] sm:max-w-[380px]">
+              {/* Arch frame outer border - wider curved arch */}
+              <div className="relative border-2 border-[var(--color-gold)]/40 bg-[var(--color-bg-sunken)] p-2.5 shadow-xl rounded-t-[80px] rounded-b-2xl">
+                <div className="relative overflow-hidden bg-gradient-to-b from-[var(--color-bg-elevated)] to-[var(--color-bg-sunken)] border border-[var(--color-gold)]/20 rounded-t-[72px] rounded-b-xl flex flex-col items-center justify-between p-6 text-center h-[260px] sm:h-[270px]">
                   {/* Subtle girih pattern */}
-                  <div className="absolute inset-0 pattern-girih-gold opacity-30 pointer-events-none" />
+                  <div className="absolute inset-0 pattern-girih-gold opacity-25 pointer-events-none" />
 
-                  {/* Top decorative arch badge */}
-                  <div className="relative z-10 pt-4">
-                    <span className="text-[10px] font-mono tracking-widest text-[var(--color-gold-deep)] uppercase px-2.5 py-0.5 rounded-full bg-[var(--color-gold)]/10 border border-[var(--color-gold)]/20">
+                  {/* Top arch label */}
+                  <div className="relative z-10">
+                    <span className="text-[10px] font-mono tracking-widest text-[var(--color-gold-deep)] uppercase px-3 py-0.5 rounded-full bg-[var(--color-gold)]/10 border border-[var(--color-gold)]/20">
                       Instructor Portrait
                     </span>
                   </div>
 
-                  {/* Avatar Centerpiece */}
-                  <div className="relative z-10 flex flex-col items-center">
-                    <div className="w-28 h-28 rounded-full bg-[var(--color-bg-elevated)] border-2 border-[var(--color-gold)]/60 flex items-center justify-center text-[var(--color-gold-deep)] shadow-lg shadow-[var(--color-gold)]/10 group-hover:scale-105 transition-transform duration-200">
-                      <User className="w-14 h-14 stroke-[1.2] text-[var(--color-gold-deep)]" />
+                  {/* Center Avatar & Label */}
+                  <div className="relative z-10 flex flex-col items-center gap-2">
+                    <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-[var(--color-bg-elevated)] border-2 border-[var(--color-gold)]/60 flex items-center justify-center text-[var(--color-gold-deep)] shadow-md group-hover:scale-105 transition-transform duration-200">
+                      <User className="w-10 h-10 sm:w-12 sm:h-12 stroke-[1.2] text-[var(--color-gold-deep)]" />
                     </div>
-                    <span className="text-xs font-display font-bold text-[var(--color-ink)] mt-3">
-                      صورة المحاضر
+                    <span className="text-xs font-display font-bold text-[var(--color-ink)]">
+                      مساحة صورة المحاضر
                     </span>
                   </div>
 
                   {/* Bottom badge */}
-                  <div className="relative z-10 w-full">
-                    <div className="py-1.5 px-3 rounded-xl bg-[var(--color-bg-elevated)]/90 border border-[var(--color-gold)]/30 text-[var(--color-gold-deep)] text-xs font-semibold shadow-xs backdrop-blur-xs">
+                  <div className="relative z-10 w-full max-w-[280px]">
+                    <div className="py-1 px-3 rounded-lg bg-[var(--color-bg-elevated)]/90 border border-[var(--color-gold)]/30 text-[var(--color-gold-deep)] text-xs font-semibold shadow-2xs backdrop-blur-xs">
                       محمد العدوي — Copyway
                     </div>
                   </div>
