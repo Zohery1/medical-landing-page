@@ -1,17 +1,17 @@
 "use client";
 
-import React, { useRef, useState, useEffect } from "react";
-import { motion, useScroll, useSpring, useTransform, useMotionValue } from "motion/react";
+import React from "react";
+import { motion, useScroll, useSpring } from "motion/react";
 
 /**
  * 1. ScrollProgress:
- * Top sticky progress bar with spring physics tracking scroll percentage.
+ * Top sticky progress bar with snappy spring physics.
  */
 export function ScrollProgress() {
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
-    stiffness: 200,
-    damping: 30,
+    stiffness: 400,
+    damping: 35,
     restDelta: 0.001,
   });
 
@@ -25,7 +25,7 @@ export function ScrollProgress() {
 
 /**
  * 2. Reveal:
- * Smooth scroll-triggered entrance animation with directional control.
+ * Fast, elegant entrance on scroll.
  */
 interface RevealProps {
   children: React.ReactNode;
@@ -40,9 +40,9 @@ export function Reveal({
   children,
   className = "",
   delay = 0,
-  duration = 0.6,
+  duration = 0.45,
   direction = "up",
-  distance = 30,
+  distance = 24,
 }: RevealProps) {
   const getInitialPosition = () => {
     switch (direction) {
@@ -65,11 +65,11 @@ export function Reveal({
     <motion.div
       initial={initial}
       whileInView={{ opacity: 1, x: 0, y: 0 }}
-      viewport={{ once: true, margin: "-60px" }}
+      viewport={{ once: true, margin: "-40px" }}
       transition={{
         duration,
         delay,
-        ease: [0.22, 1, 0.36, 1], // Smooth snappy cubic-bezier
+        ease: [0.16, 1, 0.3, 1], // Apple snappy ease-out
       }}
       className={className}
     >
@@ -79,8 +79,8 @@ export function Reveal({
 }
 
 /**
- * 3. TiltCard:
- * 3D isometric interactive tilt on hover with dynamic cursor glare.
+ * 3. TiltCard (Instant Hardware-Accelerated Interactive Card):
+ * 0ms latency, pure GPU compositor transform on hover without any JS layout thrashing.
  */
 interface TiltCardProps {
   children: React.ReactNode;
@@ -92,75 +92,19 @@ interface TiltCardProps {
 export function TiltCard({
   children,
   className = "",
-  intensity = 10,
-  glare = true,
 }: TiltCardProps) {
-  const cardRef = useRef<HTMLDivElement>(null);
-  const [isHovered, setIsHovered] = useState(false);
-
-  const x = useMotionValue(0.5);
-  const y = useMotionValue(0.5);
-
-  const rotateX = useSpring(useTransform(y, [0, 1], [intensity, -intensity]), {
-    stiffness: 250,
-    damping: 25,
-  });
-  const rotateY = useSpring(useTransform(x, [0, 1], [-intensity, intensity]), {
-    stiffness: 250,
-    damping: 25,
-  });
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current) return;
-    const rect = cardRef.current.getBoundingClientRect();
-    const posX = (e.clientX - rect.left) / rect.width;
-    const posY = (e.clientY - rect.top) / rect.height;
-    x.set(posX);
-    y.set(posY);
-  };
-
-  const handleMouseEnter = () => setIsHovered(true);
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-    x.set(0.5);
-    y.set(0.5);
-  };
-
   return (
-    <motion.div
-      ref={cardRef}
-      onMouseMove={handleMouseMove}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      style={{
-        rotateX,
-        rotateY,
-        transformStyle: "preserve-3d",
-      }}
-      whileHover={{ y: -4, scale: 1.01 }}
-      transition={{ type: "spring", stiffness: 300, damping: 20 }}
-      className={`relative perspective-1000 ${className}`}
+    <div
+      className={`transition-all duration-150 ease-out hover:-translate-y-1.5 hover:shadow-lg hover:border-[var(--color-gold)]/80 will-change-transform ${className}`}
     >
       {children}
-
-      {glare && isHovered && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.15 }}
-          exit={{ opacity: 0 }}
-          style={{
-            background: `radial-gradient(circle at ${x.get() * 100}% ${y.get() * 100}%, rgba(212,163,115,0.8), transparent 60%)`,
-          }}
-          className="absolute inset-0 rounded-[inherit] pointer-events-none transition-opacity duration-300"
-        />
-      )}
-    </motion.div>
+    </div>
   );
 }
 
 /**
  * 4. FloatingElement:
- * Weightless antigravity continuous floating bob.
+ * Weightless continuous floating bob.
  */
 export function FloatingElement({
   children,
@@ -179,7 +123,6 @@ export function FloatingElement({
     <motion.div
       animate={{
         y: [-distance / 2, distance / 2, -distance / 2],
-        rotate: [-0.5, 0.5, -0.5],
       }}
       transition={{
         duration,
@@ -197,7 +140,7 @@ export function FloatingElement({
 
 /**
  * 5. ShimmerButtonWrapper:
- * Adds a sweeping ambient gleam across buttons.
+ * Sweeping light gleam on buttons.
  */
 export function ShimmerButtonWrapper({
   children,
@@ -214,28 +157,13 @@ export function ShimmerButtonWrapper({
           x: ["-100%", "200%"],
         }}
         transition={{
-          duration: 3,
+          duration: 2.8,
           repeat: Infinity,
           ease: "easeInOut",
-          repeatDelay: 2,
+          repeatDelay: 1.5,
         }}
         className="absolute inset-0 w-1/3 bg-gradient-to-r from-transparent via-white/25 to-transparent skew-x-12 pointer-events-none"
       />
     </div>
-  );
-}
-
-/**
- * 6. PulseBeam:
- * Animated glowing light traveling continuously through pipelines.
- */
-export function PulseBeam({ activeIndex, total }: { activeIndex: number; total: number }) {
-  const percentage = ((activeIndex + 0.5) / total) * 100;
-  return (
-    <motion.div
-      animate={{ left: `${percentage}%` }}
-      transition={{ type: "spring", stiffness: 100, damping: 20 }}
-      className="absolute top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-[var(--color-accent)] shadow-[0_0_15px_var(--color-accent)] pointer-events-none -translate-x-1/2"
-    />
   );
 }

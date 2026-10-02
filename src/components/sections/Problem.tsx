@@ -2,7 +2,6 @@
 
 import React from "react";
 import { Section } from "@/components/ui/Section";
-import { motion } from "motion/react";
 import { Reveal } from "@/components/ui/motion-primitives";
 
 export function Problem() {
@@ -28,40 +27,27 @@ export function Problem() {
       <div className="max-w-4xl space-y-6 text-right">
         <div className="divide-y divide-[var(--color-border-strong)] border-y border-[var(--color-border-strong)]">
           {problems.map((text, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, x: 25 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{
-                duration: 0.5,
-                delay: idx * 0.07,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-              whileHover={{ x: -8 }}
-              className="py-4.5 flex items-center gap-4 group cursor-default transition-all"
-            >
-              <motion.span
-                whileHover={{ scale: 1.2, color: "var(--color-accent)" }}
-                className="font-mono text-xs font-bold text-[var(--color-gold-deep)] w-6 shrink-0 transition-colors"
+            <Reveal key={idx} direction="right" delay={idx * 0.04}>
+              <div
+                className="py-4.5 flex items-center gap-4 group cursor-default transition-transform duration-150 ease-out hover:-translate-x-2"
               >
-                0{idx + 1}
-              </motion.span>
-              <p className="font-display text-base sm:text-lg font-bold text-[var(--color-ink)] group-hover:text-[var(--color-accent)] transition-colors">
-                {text}
-              </p>
-            </motion.div>
+                <span
+                  className="font-mono text-xs font-bold text-[var(--color-gold-deep)] w-6 shrink-0 group-hover:text-[var(--color-accent)] group-hover:scale-110 transition-all duration-150"
+                >
+                  0{idx + 1}
+                </span>
+                <p className="font-display text-base sm:text-lg font-bold text-[var(--color-ink)] group-hover:text-[var(--color-accent)] transition-colors duration-150">
+                  {text}
+                </p>
+              </div>
+            </Reveal>
           ))}
         </div>
 
-        <Reveal direction="up" delay={0.6}>
-          <motion.p
-            animate={{ scale: [1, 1.02, 1] }}
-            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-            className="font-display text-lg sm:text-xl font-bold text-[var(--color-accent)] pt-4"
-          >
+        <Reveal direction="up" delay={0.4}>
+          <p className="font-display text-lg sm:text-xl font-bold text-[var(--color-accent)] pt-4">
             هنا بيبدأ دور الكورس.
-          </motion.p>
+          </p>
         </Reveal>
       </div>
     </Section>

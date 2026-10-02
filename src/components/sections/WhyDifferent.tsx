@@ -1,32 +1,22 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Section } from "@/components/ui/Section";
-import { motion } from "motion/react";
 import { Reveal } from "@/components/ui/motion-primitives";
 
 export function WhyDifferent() {
   const steps = [
-    "Business",
-    "Service",
-    "Patient",
-    "Research",
-    "Strategy",
-    "Message",
-    "Content",
-    "Ads",
-    "Conversion",
-    "Measurement",
+    { num: "01", name: "Business" },
+    { num: "02", name: "Service" },
+    { num: "03", name: "Patient" },
+    { num: "04", name: "Research" },
+    { num: "05", name: "Strategy" },
+    { num: "06", name: "Message" },
+    { num: "07", name: "Content" },
+    { num: "08", name: "Ads" },
+    { num: "09", name: "Conversion" },
+    { num: "10", name: "Measurement" },
   ];
-
-  const [activeStep, setActiveStep] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setActiveStep((prev) => (prev + 1) % steps.length);
-    }, 1200);
-    return () => clearInterval(timer);
-  }, [steps.length]);
 
   return (
     <Section
@@ -38,55 +28,48 @@ export function WhyDifferent() {
     >
       <div className="space-y-8 max-w-4xl text-right">
         {/* مش */}
-        <Reveal direction="right">
+        <Reveal direction="up" delay={0.1}>
           <div className="p-6 rounded-2xl bg-[var(--color-bg-sunken)]/60 border border-[var(--color-border)] space-y-3">
             <span className="font-display text-sm font-bold text-red-600 block">
               مش:
             </span>
-            <div className="font-mono text-base font-bold text-[var(--color-muted)]">
-              Post → Post → Post
+            <div dir="ltr" className="flex items-center gap-2 font-mono text-base font-bold text-[var(--color-muted)]">
+              <span className="px-3 py-1 rounded-md bg-[var(--color-bg-elevated)] border border-[var(--color-border)]">Post</span>
+              <span className="text-red-400">→</span>
+              <span className="px-3 py-1 rounded-md bg-[var(--color-bg-elevated)] border border-[var(--color-border)]">Post</span>
+              <span className="text-red-400">→</span>
+              <span className="px-3 py-1 rounded-md bg-[var(--color-bg-elevated)] border border-[var(--color-border)]">Post</span>
             </div>
           </div>
         </Reveal>
 
-        {/* لكن with traveling pipeline beam */}
-        <Reveal direction="left" delay={0.2}>
-          <div className="p-6 rounded-2xl bg-[var(--color-bg-elevated)] border-2 border-[var(--color-accent)] shadow-md space-y-4 relative overflow-hidden">
-            <span className="font-display text-sm font-bold text-[var(--color-accent)] block">
+        {/* لكن */}
+        <Reveal direction="up" delay={0.2}>
+          <div className="p-6 sm:p-8 rounded-2xl bg-[var(--color-bg-elevated)] border-2 border-[var(--color-accent)] shadow-md space-y-4">
+            <span className="font-display text-base font-bold text-[var(--color-accent)] block">
               لكن:
             </span>
 
-            <div className="flex flex-wrap items-center gap-2 text-sm font-bold text-[var(--color-ink)]">
-              {steps.map((s, idx) => {
-                const isActive = activeStep === idx;
-                return (
-                  <React.Fragment key={s}>
-                    <motion.span
-                      animate={{
-                        scale: isActive ? 1.08 : 1,
-                        backgroundColor: isActive ? "var(--color-accent)" : "var(--color-bg-sunken)",
-                        color: isActive ? "#ffffff" : "var(--color-ink)",
-                        borderColor: isActive ? "var(--color-accent)" : "var(--color-border)",
-                      }}
-                      transition={{ duration: 0.3 }}
-                      className="px-3.5 py-1.5 rounded-lg border font-mono shadow-xs"
-                    >
-                      {s}
-                    </motion.span>
-                    {idx < steps.length - 1 && (
-                      <motion.span
-                        animate={{
-                          color: activeStep === idx ? "var(--color-accent)" : "var(--color-muted)",
-                          scale: activeStep === idx ? 1.3 : 1,
-                        }}
-                        className="font-bold select-none"
-                      >
-                        →
-                      </motion.span>
-                    )}
-                  </React.Fragment>
-                );
-              })}
+            {/* Pipeline displayed in natural left-to-right English flow */}
+            <div dir="ltr" className="flex flex-wrap items-center gap-2 sm:gap-2.5">
+              {steps.map((s, idx) => (
+                <React.Fragment key={s.name}>
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[var(--color-bg-sunken)] border border-[var(--color-border)] hover:border-[var(--color-accent)] hover:bg-[var(--color-bg-elevated)] transition-colors duration-150 group shadow-2xs">
+                    <span className="font-mono text-[10px] font-bold text-[var(--color-gold-deep)] group-hover:text-[var(--color-accent)] transition-colors">
+                      {s.num}
+                    </span>
+                    <span className="font-mono text-xs sm:text-sm font-bold text-[var(--color-ink)]">
+                      {s.name}
+                    </span>
+                  </div>
+
+                  {idx < steps.length - 1 && (
+                    <span className="text-[var(--color-accent)] font-bold text-sm select-none">
+                      →
+                    </span>
+                  )}
+                </React.Fragment>
+              ))}
             </div>
           </div>
         </Reveal>

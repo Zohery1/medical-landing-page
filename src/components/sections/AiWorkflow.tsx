@@ -1,9 +1,8 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Section } from "@/components/ui/Section";
-import { motion } from "motion/react";
-import { Reveal, TiltCard } from "@/components/ui/motion-primitives";
+import { Reveal } from "@/components/ui/motion-primitives";
 
 export function AiWorkflow() {
   const questions = [
@@ -18,21 +17,12 @@ export function AiWorkflow() {
   ];
 
   const workflow = [
-    "Brief",
-    "Context",
-    "AI",
-    "Human Review",
-    "Optimization",
+    { num: "01", name: "Brief" },
+    { num: "02", name: "Context" },
+    { num: "03", name: "AI" },
+    { num: "04", name: "Human Review" },
+    { num: "05", name: "Optimization" },
   ];
-
-  const [activeWorkflowIdx, setActiveWorkflowIdx] = useState(0);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setActiveWorkflowIdx((prev) => (prev + 1) % workflow.length);
-    }, 1200);
-    return () => clearInterval(timer);
-  }, [workflow.length]);
 
   return (
     <Section
@@ -53,22 +43,19 @@ export function AiWorkflow() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
             {questions.map((q, idx) => (
-              <Reveal key={idx} direction="up" delay={idx * 0.05}>
-                <TiltCard intensity={8}>
-                  <motion.div
-                    whileHover={{ scale: 1.04, borderColor: "var(--color-accent)" }}
-                    className="p-3.5 rounded-xl bg-[var(--color-bg-elevated)] border border-[var(--color-border)] text-sm font-bold text-[var(--color-ink)] shadow-2xs hover:shadow-sm transition-colors text-center"
-                  >
-                    {q}
-                  </motion.div>
-                </TiltCard>
+              <Reveal key={idx} direction="up" delay={idx * 0.04}>
+                <div
+                  className="p-3.5 rounded-xl bg-[var(--color-bg-elevated)] border border-[var(--color-border)] hover:border-[var(--color-accent)] hover:-translate-y-1 hover:shadow-md transition-all duration-150 ease-out text-sm font-bold text-[var(--color-ink)] text-center cursor-default"
+                >
+                  {q}
+                </div>
               </Reveal>
             ))}
           </div>
         </div>
 
         {/* عشان كده: */}
-        <Reveal direction="up" delay={0.4}>
+        <Reveal direction="up" delay={0.3}>
           <div className="p-8 rounded-2xl bg-[var(--color-bg-elevated)] border-2 border-[var(--color-gold)]/50 shadow-md space-y-4 text-center relative overflow-hidden">
             <p className="font-display text-xl font-bold text-[var(--color-ink)]">
               عشان كده: AI مش بديل عن التفكير التسويقي.
@@ -77,37 +64,25 @@ export function AiWorkflow() {
               هو أداة داخل Workflow منظم:
             </p>
 
-            <div className="flex flex-wrap items-center justify-center gap-2 pt-2">
-              {workflow.map((step, idx) => {
-                const isActive = activeWorkflowIdx === idx;
-                return (
-                  <React.Fragment key={step}>
-                    <motion.span
-                      animate={{
-                        scale: isActive ? 1.08 : 1,
-                        backgroundColor: isActive ? "var(--color-accent)" : "var(--color-bg-sunken)",
-                        color: isActive ? "#ffffff" : "var(--color-accent)",
-                        borderColor: isActive ? "var(--color-accent)" : "var(--color-border)",
-                      }}
-                      transition={{ duration: 0.3 }}
-                      className="px-4 py-2 rounded-xl border font-mono text-sm font-bold shadow-2xs"
-                    >
-                      {step}
-                    </motion.span>
-                    {idx < workflow.length - 1 && (
-                      <motion.span
-                        animate={{
-                          color: activeWorkflowIdx === idx ? "var(--color-accent)" : "var(--color-gold)",
-                          scale: activeWorkflowIdx === idx ? 1.3 : 1,
-                        }}
-                        className="font-bold text-base select-none transition-colors"
-                      >
-                        ←
-                      </motion.span>
-                    )}
-                  </React.Fragment>
-                );
-              })}
+            <div dir="ltr" className="flex flex-wrap items-center justify-center gap-2 pt-2">
+              {workflow.map((step, idx) => (
+                <React.Fragment key={step.name}>
+                  <div className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[var(--color-bg-sunken)] border border-[var(--color-border)] hover:border-[var(--color-accent)] hover:-translate-y-0.5 transition-all duration-150 shadow-2xs">
+                    <span className="font-mono text-xs text-[var(--color-gold-deep)] font-bold">
+                      {step.num}
+                    </span>
+                    <span className="font-mono text-sm font-bold text-[var(--color-accent)]">
+                      {step.name}
+                    </span>
+                  </div>
+
+                  {idx < workflow.length - 1 && (
+                    <span className="text-[var(--color-accent)] font-bold text-base select-none">
+                      →
+                    </span>
+                  )}
+                </React.Fragment>
+              ))}
             </div>
           </div>
         </Reveal>

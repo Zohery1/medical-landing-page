@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Section } from "@/components/ui/Section";
-import { Reveal, TiltCard } from "@/components/ui/motion-primitives";
+import { Reveal } from "@/components/ui/motion-primitives";
 
 export function FreeVsPaid() {
   const freeItems = [
@@ -13,21 +13,21 @@ export function FreeVsPaid() {
   ];
 
   const paidCurrent = [
-    "Market",
-    "Audience",
-    "Strategy",
-    "Content",
-    "Copywriting",
+    { num: "01", name: "Market" },
+    { num: "02", name: "Audience" },
+    { num: "03", name: "Strategy" },
+    { num: "04", name: "Content" },
+    { num: "05", name: "Copywriting" },
   ];
 
   const paidFuture = [
-    "Business",
-    "Patient Journey",
-    "Paid",
-    "Funnel",
-    "CRO",
-    "Measurement",
-    "AI Workflow",
+    { num: "01", name: "Business" },
+    { num: "02", name: "Patient Journey" },
+    { num: "03", name: "Paid" },
+    { num: "04", name: "Funnel" },
+    { num: "05", name: "CRO" },
+    { num: "06", name: "Measurement" },
+    { num: "07", name: "AI Workflow" },
   ];
 
   return (
@@ -39,8 +39,8 @@ export function FreeVsPaid() {
     >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16 items-start text-right">
         {/* التدريب المجاني */}
-        <Reveal direction="right">
-          <div className="p-8 rounded-2xl bg-[var(--color-bg-sunken)]/60 border border-[var(--color-border)] space-y-6">
+        <Reveal direction="up" delay={0.1}>
+          <div className="p-8 rounded-2xl bg-[var(--color-bg-sunken)]/60 border border-[var(--color-border)] space-y-6 hover:shadow-md transition-shadow duration-200">
             <h3 className="font-display text-xl font-bold text-[var(--color-ink)] pb-3 border-b border-[var(--color-border-strong)]">
               التدريب المجاني
             </h3>
@@ -69,58 +69,58 @@ export function FreeVsPaid() {
           </div>
         </Reveal>
 
-        {/* الكورس المدفوع with 3D TiltCard */}
-        <Reveal direction="left" delay={0.2}>
-          <TiltCard intensity={8}>
-            <div className="p-8 rounded-2xl bg-[var(--color-bg-elevated)] border-2 border-[var(--color-accent)] shadow-md space-y-6 relative overflow-hidden">
-              <div className="absolute top-0 right-0 left-0 h-1 bg-gradient-to-l from-[var(--color-accent)] via-[var(--color-gold)] to-[var(--color-accent)]" />
+        {/* الكورس المدفوع */}
+        <Reveal direction="up" delay={0.2}>
+          <div className="p-8 rounded-2xl bg-[var(--color-bg-elevated)] border-2 border-[var(--color-accent)] shadow-md space-y-6 relative overflow-hidden hover:shadow-xl transition-shadow duration-200">
+            <div className="absolute top-0 right-0 left-0 h-1 bg-gradient-to-l from-[var(--color-accent)] via-[var(--color-gold)] to-[var(--color-accent)]" />
 
-              <h3 className="font-display text-xl font-bold text-[var(--color-accent)] pb-3 border-b border-[var(--color-border)] flex items-center justify-between">
-                <span>الكورس المدفوع</span>
-                <span className="text-xs font-mono font-bold px-2 py-0.5 rounded-full bg-[var(--color-accent)]/10 text-[var(--color-accent)]">
-                  المنظومة الكاملة
-                </span>
-              </h3>
+            <h3 className="font-display text-xl font-bold text-[var(--color-accent)] pb-3 border-b border-[var(--color-border)] flex items-center justify-between">
+              <span>الكورس المدفوع</span>
+              <span className="text-xs font-mono font-bold px-2 py-0.5 rounded-full bg-[var(--color-accent)]/10 text-[var(--color-accent)]">
+                المنظومة الكاملة
+              </span>
+            </h3>
 
-              <div className="space-y-3">
-                <p className="font-display text-base font-bold text-[var(--color-ink)]">
-                  المنظومة الكاملة:
-                </p>
-                <p className="text-sm font-semibold text-[var(--color-gold-deep)]">
-                  13 محاضرة مسجلة حاليًا
-                </p>
-                <p className="text-xs font-bold text-[var(--color-muted)]">
-                  من:
-                </p>
-                <div className="flex flex-wrap items-center gap-1.5 font-mono text-xs font-bold text-[var(--color-ink)]">
-                  {paidCurrent.map((s, idx) => (
-                    <React.Fragment key={s}>
-                      <span className="px-2 py-0.5 rounded bg-[var(--color-bg-sunken)] border border-[var(--color-border)]">
-                        {s}
-                      </span>
-                      {idx < paidCurrent.length - 1 && <span>←</span>}
-                    </React.Fragment>
-                  ))}
-                </div>
-              </div>
-
-              <div className="space-y-2 pt-2 border-t border-[var(--color-border)]">
-                <p className="text-xs font-bold text-[var(--color-muted)]">
-                  مع التوسع المقترح إلى:
-                </p>
-                <div className="flex flex-wrap items-center gap-1.5 font-mono text-xs font-bold text-[var(--color-accent)]">
-                  {paidFuture.map((s, idx) => (
-                    <React.Fragment key={s}>
-                      <span className="px-2 py-0.5 rounded bg-[var(--color-accent)]/10 border border-[var(--color-accent)]/20">
-                        {s}
-                      </span>
-                      {idx < paidFuture.length - 1 && <span>←</span>}
-                    </React.Fragment>
-                  ))}
-                </div>
+            <div className="space-y-3">
+              <p className="font-display text-base font-bold text-[var(--color-ink)]">
+                المنظومة الكاملة:
+              </p>
+              <p className="text-sm font-semibold text-[var(--color-gold-deep)]">
+                13 محاضرة مسجلة حاليًا
+              </p>
+              <p className="text-xs font-bold text-[var(--color-muted)]">
+                من:
+              </p>
+              <div dir="ltr" className="flex flex-wrap items-center gap-1.5 font-mono text-xs font-bold">
+                {paidCurrent.map((s, idx) => (
+                  <React.Fragment key={s.name}>
+                    <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-[var(--color-bg-sunken)] border border-[var(--color-border)] text-[var(--color-ink)]">
+                      <span className="text-[10px] text-[var(--color-gold-deep)]">{s.num}</span>
+                      <span>{s.name}</span>
+                    </span>
+                    {idx < paidCurrent.length - 1 && <span className="text-[var(--color-accent)] font-bold">→</span>}
+                  </React.Fragment>
+                ))}
               </div>
             </div>
-          </TiltCard>
+
+            <div className="space-y-2 pt-3 border-t border-[var(--color-border)]">
+              <p className="text-xs font-bold text-[var(--color-muted)]">
+                مع التوسع المقترح إلى:
+              </p>
+              <div dir="ltr" className="flex flex-wrap items-center gap-1.5 font-mono text-xs font-bold">
+                {paidFuture.map((s, idx) => (
+                  <React.Fragment key={s.name}>
+                    <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-[var(--color-accent)]/10 border border-[var(--color-accent)]/20 text-[var(--color-accent)]">
+                      <span className="text-[10px] text-[var(--color-gold-deep)]">{s.num}</span>
+                      <span>{s.name}</span>
+                    </span>
+                    {idx < paidFuture.length - 1 && <span className="text-[var(--color-accent)] font-bold">→</span>}
+                  </React.Fragment>
+                ))}
+              </div>
+            </div>
+          </div>
         </Reveal>
       </div>
     </Section>

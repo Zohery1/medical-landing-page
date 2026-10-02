@@ -2,24 +2,23 @@
 
 import React from "react";
 import { Container } from "@/components/ui/Primitives";
-import { motion } from "motion/react";
 import { Reveal } from "@/components/ui/motion-primitives";
 
 export function BigMap() {
   const journeySteps = [
-    "Medical Business",
-    "Niche & Services",
-    "Patient Journey",
-    "Research & Evidence",
-    "Segments & Personas",
-    "Awareness & Psychology",
-    "Positioning & Offer",
-    "Messaging Strategy",
-    "Content Pillars & Angles",
-    "Hooks & Copy",
-    "Organic & Paid",
-    "Conversion & CRO",
-    "Measurement & Optimization",
+    { num: "01", title: "Medical Business" },
+    { num: "02", title: "Niche & Services" },
+    { num: "03", title: "Patient Journey" },
+    { num: "04", title: "Research & Evidence" },
+    { num: "05", title: "Segments & Personas" },
+    { num: "06", title: "Awareness & Psychology" },
+    { num: "07", title: "Positioning & Offer" },
+    { num: "08", title: "Messaging Strategy" },
+    { num: "09", title: "Content Pillars & Angles" },
+    { num: "10", title: "Hooks & Copy" },
+    { num: "11", title: "Organic & Paid" },
+    { num: "12", title: "Conversion & CRO" },
+    { num: "13", title: "Measurement & Optimization" },
   ];
 
   return (
@@ -33,47 +32,35 @@ export function BigMap() {
           </Reveal>
         </div>
 
-        {/* Visual Journey Roadmap */}
-        <div className="max-w-2xl mx-auto space-y-3">
+        {/* Visual Journey Roadmap - Elegant and Compact */}
+        <div className="max-w-lg mx-auto space-y-2.5">
           {journeySteps.map((step, index) => (
-            <React.Fragment key={index}>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-40px" }}
-                transition={{ duration: 0.4, delay: index * 0.04 }}
-                whileHover={{ scale: 1.02, x: -4 }}
-                className="p-4 rounded-xl bg-[var(--color-bg-elevated)] border border-[var(--color-border)] hover:border-[var(--color-accent)] transition-all shadow-sm flex items-center justify-between group cursor-default"
-              >
-                <span className="font-display text-base sm:text-lg font-bold text-[var(--color-ink)] group-hover:text-[var(--color-accent)] transition-colors">
-                  {step}
+            <React.Fragment key={step.num}>
+              <div className="p-3.5 sm:p-4 rounded-xl bg-[var(--color-bg-elevated)] border border-[var(--color-border)] hover:border-[var(--color-accent)] hover:shadow-md transition-all duration-150 flex items-center justify-between group cursor-default">
+                {/* Step title in English */}
+                <span className="font-display text-sm sm:text-base font-bold text-[var(--color-ink)] group-hover:text-[var(--color-accent)] transition-colors">
+                  {step.title}
                 </span>
-                <span className="font-mono text-xs font-bold text-[var(--color-gold-deep)] bg-[var(--color-bg-sunken)] px-2.5 py-1 rounded border border-[var(--color-border)] group-hover:border-[var(--color-accent)]/40 group-hover:text-[var(--color-accent)] transition-colors">
-                  0{index + 1}
+
+                {/* Step badge on the left */}
+                <span className="font-mono text-xs font-bold text-[var(--color-gold-deep)] bg-[var(--color-bg-sunken)] px-2.5 py-1 rounded-md border border-[var(--color-border)] group-hover:border-[var(--color-accent)]/40 group-hover:text-[var(--color-accent)] transition-colors shrink-0">
+                  الخطوة {step.num}
                 </span>
-              </motion.div>
+              </div>
 
               {index < journeySteps.length - 1 && (
-                <motion.div
-                  animate={{ y: [0, 3, 0] }}
-                  transition={{ duration: 1.5, repeat: Infinity, delay: index * 0.1 }}
-                  className="flex justify-center text-[var(--color-accent)] font-bold text-sm select-none py-0.5"
-                >
+                <div className="flex justify-center text-[var(--color-accent)] font-bold text-sm select-none py-0.5">
                   ↓
-                </motion.div>
+                </div>
               )}
             </React.Fragment>
           ))}
         </div>
 
-        <Reveal direction="up" delay={0.5}>
-          <motion.p
-            animate={{ scale: [1, 1.03, 1] }}
-            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-            className="text-center text-sm sm:text-base font-semibold text-[var(--color-accent)] mt-8"
-          >
+        <Reveal direction="up" delay={0.2}>
+          <p className="text-center text-sm sm:text-base font-bold text-[var(--color-accent)] mt-8">
             كل خطوة بتبني على اللي قبلها.
-          </motion.p>
+          </p>
         </Reveal>
       </Container>
     </section>
