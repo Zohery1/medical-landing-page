@@ -113,7 +113,6 @@ export function Instructor() {
               <ShimmerButtonWrapper className="inline-block">
                 <Button
                   isWhatsApp
-                  customMessage="مرحبًا أستاذ محمد العدوي، أود الانضمام لبرنامج التدريب الطبي تحت إشرافك"
                   size="lg"
                   variant="terracotta"
                   className="shadow-md"

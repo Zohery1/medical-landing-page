@@ -16,13 +16,8 @@ export const siteConfig = {
   whatsapp: {
     number: "+201507786761",
     rawNumber: "201507786761",
-    defaultMessage: "مرحبًا محمد، أود الاستفسار والاشتراك في كورس Medical Performance Marketing & Medical Copywriting",
-    getLink: (customMessage?: string) => {
-      const msg = encodeURIComponent(
-        customMessage || "مرحبًا، أود الاستفسار والاشتراك في كورس Medical Performance Marketing & Copywriting"
-      );
-      return `https://wa.me/201507786761?text=${msg}`;
-    },
+    defaultMessage: "",
+    getLink: () => "https://wa.me/201507786761",
   },
   pricing: {
     current: 2000,

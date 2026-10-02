@@ -60,7 +60,7 @@ export function Footer() {
               المحاضر
             </a>
             <a
-              href={siteConfig.whatsapp.getLink("مرحبًا، أود التواصل بخصوص كورس التسويق الطبي")}
+              href={siteConfig.whatsapp.getLink()}
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-[var(--color-accent)] transition-colors"

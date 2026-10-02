@@ -75,7 +75,6 @@ export function Hero() {
                 <ShimmerButtonWrapper>
                   <Button
                     isWhatsApp
-                    customMessage="مرحبًا، أود الاشتراك في كورس Medical Performance Marketing & Copywriting"
                     size="lg"
                     variant="terracotta"
                     className="shadow-lg shadow-[var(--color-accent)]/20"

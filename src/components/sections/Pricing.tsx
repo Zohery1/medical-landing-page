@@ -49,7 +49,6 @@ export function Pricing() {
                 <ShimmerButtonWrapper className="inline-block">
                   <Button
                     isWhatsApp
-                    customMessage="مرحبًا، أود الاشتراك في كورس المحتوى والتسويق الطبي بسعر 2000 جنيه"
                     size="lg"
                     variant="terracotta"
                     className="w-full sm:w-auto px-12 text-base shadow-lg shadow-[var(--color-accent)]/25"

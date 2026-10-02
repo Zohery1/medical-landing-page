@@ -9,7 +9,6 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   size?: "sm" | "default" | "lg";
   href?: string;
   isWhatsApp?: boolean;
-  customMessage?: string;
   withArrow?: boolean;
 }
 
@@ -19,7 +18,6 @@ export function Button({
   size = "default",
   href,
   isWhatsApp = false,
-  customMessage,
   withArrow = true,
   children,
   ...props
@@ -43,7 +41,7 @@ export function Button({
   );
 
   const finalHref = isWhatsApp
-    ? siteConfig.whatsapp.getLink(customMessage)
+    ? siteConfig.whatsapp.getLink()
     : href;
 
   const content = (

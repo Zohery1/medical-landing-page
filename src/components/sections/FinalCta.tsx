@@ -75,7 +75,6 @@ export function FinalCta() {
             <ShimmerButtonWrapper className="inline-block">
               <Button
                 isWhatsApp
-                customMessage="مرحبًا، أود الاشتراك في كورس Medical Performance Marketing"
                 size="lg"
                 variant="dark"
                 className="text-base sm:text-lg px-10 py-3.5 shadow-2xl"

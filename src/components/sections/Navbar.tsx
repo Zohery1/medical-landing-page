@@ -61,7 +61,6 @@ export function Navbar() {
           <div className="hidden sm:flex items-center gap-3">
             <Button
               isWhatsApp
-              customMessage="مرحبًا، أود الاشتراك في كورس المحتوى والتسويق الطبي"
               size="default"
               variant="terracotta"
             >
@@ -97,7 +96,6 @@ export function Navbar() {
             <div className="pt-2 border-t border-[var(--color-border)]">
               <Button
                 isWhatsApp
-                customMessage="مرحبًا، أود الاشتراك في كورس المحتوى والتسويق الطبي"
                 className="w-full"
                 size="default"
               >

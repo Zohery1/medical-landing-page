@@ -46,7 +46,7 @@ export function FloatingWhatsApp() {
         transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
         whileHover={{ scale: 1.1, rotate: [0, -5, 5, 0] }}
         whileTap={{ scale: 0.95 }}
-        href={siteConfig.whatsapp.getLink("مرحبًا، لدي سؤال عن كورس المحتوى والتسويق الطبي")}
+        href={siteConfig.whatsapp.getLink()}
         target="_blank"
         rel="noopener noreferrer"
         className="w-14 h-14 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-lg shadow-emerald-500/30 relative group cursor-pointer"
