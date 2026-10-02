@@ -1,94 +1,103 @@
 import React from "react";
-import { Container, Eyebrow, BrassRule } from "@/components/ui/Primitives";
-import { AlertCircle, HelpCircle } from "lucide-react";
+import { Container } from "@/components/ui/Primitives";
+import { Section } from "@/components/ui/Section";
+import { DiamondMark } from "@/components/ui/motifs";
+import { ArrowLeft } from "lucide-react";
 
 export function Problem() {
   const problems = [
     {
-      title: "محتوى عام",
-      desc: "بتكتب محتوى عام لأي عيادة، بدون تمييز حقيقي للتخصص أو الخدمة.",
+      num: "01",
+      title: "بتكتب محتوى عام لأي عيادة",
+      desc: "نصوص مكررة تصلح لأي تخصص دون إبراز الفارق التنافسي الحقيقي أو التميز الطبي.",
     },
     {
-      title: "تشتت البداية",
-      desc: "مش عارف تبدأ منين لما تستلم Client طبي، وإيه المعلومات المطلوبة.",
+      num: "02",
+      title: "مش عارف تبدأ منين لما تستلم Client طبي",
+      desc: "تشتت بين المادة العلمية المعقدة وأهداف العميل، وغياب استمارة بحث وتفكيك واضحة.",
     },
     {
-      title: "تقليد المنافسين",
-      desc: "بتقلد المنافسين علشان مش لاقي أفكار حقيقية مستخرجة من السوق.",
+      num: "03",
+      title: "بتقلد المنافسين علشان مش لاقي أفكار",
+      desc: "دوران في حلقة مفرغة من أفكار السوق السطحية بدلاً من استخراج الأفكار من صوت المريض الفعلي.",
     },
     {
-      title: "خطة عشوائية",
-      desc: "بتعامل الـContent Plan كأنها مجرد قائمة Posts مفصولة عن أهداف البيزنس.",
+      num: "04",
+      title: "بتعامل الـ Content Plan كأنها مجرد قائمة Posts",
+      desc: "نشر يومي روتيني لملء الجدول بدون استراتيجية توجه المريض نحو الحجز.",
     },
     {
-      title: "رسالة موحدة للجميع",
-      desc: "بتستخدم نفس الرسالة لكل الجمهور على اختلاف مراحل وعيهم واحتياجهم.",
+      num: "05",
+      title: "بتستخدم نفس الرسالة لكل الجمهور",
+      desc: "تجاهل مراحل وعي المريض المختلفة من الجهل بالأعراض حتى مرحلة مقارنة الأطباء.",
     },
     {
-      title: "نتائج AI سطحية",
-      desc: "بتستخدم ChatGPT بـPrompt عام وتطلعلك نتائج مكررة وعامة وغير مقنعة.",
+      num: "06",
+      title: "بتستخدم ChatGPT بـ Prompt عام وتطلعلك نتائج عامة",
+      desc: "مخرجات ذكاء اصطناعي ركيكة تفتقر إلى السياق الطبي والـ Brief والتوجيه الدقيق.",
     },
     {
-      title: "جزر منعزلة",
-      desc: "بتفصل صناعة المحتوى عن الإعلانات الممولة ومسار الحجز والمبيعات.",
+      num: "07",
+      title: "بتفصل المحتوى عن الإعلانات والحجز والمبيعات",
+      desc: "جزر منعزلة؛ فريق المحتوى يكتب لوحده، والـ Media Buyer يطلق إعلانات لوحده دون ترابط.",
     },
     {
-      title: "قياس مضلل",
-      desc: "بتقيس عدد الـLeads فقط بدون معرفة هل تحولت لحجوزات وحضور فعلي أم لا.",
+      num: "08",
+      title: "بتقيس عدد الـ Leads فقط بدون معرفة هل تحولت لحجوزات أم لا",
+      desc: "أرقام تفاعل واستفسارات سطحية رخيصة لا تنعكس على حضور المرضى الفعلي في العيادة.",
     },
   ];
 
   return (
-    <section id="problem" className="py-20 bg-[var(--color-bg-sunken)]/50 border-y border-[var(--color-border)] relative">
-      <Container size="wide">
-        <div className="max-w-3xl mx-auto text-center space-y-4 mb-16">
-          <Eyebrow variant="terracotta">التحديات الحقيقية في السوق</Eyebrow>
-
-          <h2 className="font-display text-3xl sm:text-4xl text-[var(--color-ink)]">
-            المشكلة مش إنك مش عارف تكتب...
-          </h2>
-
-          <p className="text-base sm:text-lg text-[var(--color-ink-soft)] font-normal leading-relaxed">
-            المشكلة إنك أحيانًا مش عارف{" "}
-            <span className="font-semibold text-[var(--color-accent)]">
-              تكتب إيه وليه ولمين وإمتى.
+    <Section
+      id="problem"
+      eyebrow="تشخيص الواقع التسويقي"
+      title="المشكلة مش إنك مش عارف تكتب..."
+      description="المشكلة إنك أحيانًا مش عارف تكتب إيه وليه ولمين وإمتى. ممكن تكون بتواجه واحدة من هذه الفجوات الشائعة:"
+      tone="sunken"
+    >
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        {/* Sticky side note (Right in RTL) */}
+        <div className="lg:col-span-4 lg:sticky lg:top-32 space-y-6">
+          <div className="p-6 rounded-2xl bg-[var(--color-bg-elevated)] border border-[var(--color-border)] shadow-2xs">
+            <span className="text-xs font-bold text-[var(--color-accent)] uppercase tracking-wider block mb-2">
+              حقيقة السوق الطبي
             </span>
-          </p>
+            <p className="font-display text-lg font-bold text-[var(--color-ink)] leading-snug mb-3">
+              العيادة لا تحتاج إلى منشورات إضافية، بل تحتاج إلى مسار إقناع.
+            </p>
+            <p className="text-xs sm:text-sm text-[var(--color-muted)] leading-relaxed">
+              عندما يفقد المحتوى الطبي بوصلة البيزنس وسيكولوجية المريض، يتحول التسويق إلى عبء مالي وتكلفة بدون عائد حقيقي.
+            </p>
+          </div>
+
+          <div className="hidden lg:block text-xs text-[var(--color-gold-deep)] font-medium">
+            <span className="inline-block ms-1">←</span> هنا ينتهي التشتت ويبدأ دور المنظومة.
+          </div>
         </div>
 
-        {/* Problems Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-          {problems.map((item, index) => (
+        {/* Clean Editorial Divided List (Left in RTL) - No Card Clutter */}
+        <div className="lg:col-span-8 divide-y divide-[var(--color-border-strong)]">
+          {problems.map((item) => (
             <div
-              key={index}
-              className="bg-[var(--color-bg-elevated)] p-6 rounded-[var(--radius-card)] border border-[var(--color-border)] hover:border-[var(--color-accent)]/50 transition-all duration-200 shadow-2xs hover:shadow-xs flex flex-col justify-between"
+              key={item.num}
+              className="py-6 first:pt-0 last:pb-0 flex items-start gap-5 group transition-colors"
             >
-              <div>
-                <div className="flex items-center justify-between mb-4">
-                  <span className="w-8 h-8 rounded-full bg-[var(--color-accent)]/10 text-[var(--color-accent)] font-semibold text-xs flex items-center justify-center font-mono">
-                    0{index + 1}
-                  </span>
-                  <AlertCircle className="w-5 h-5 text-[var(--color-accent)] opacity-70" />
-                </div>
-                <h3 className="font-display text-base font-bold text-[var(--color-ink)] mb-2">
+              <span className="font-mono text-xs font-bold text-[var(--color-gold-deep)] w-7 shrink-0 pt-1">
+                {item.num}
+              </span>
+              <div className="space-y-1.5 flex-1">
+                <h3 className="font-display text-base sm:text-lg font-bold text-[var(--color-ink)] group-hover:text-[var(--color-accent)] transition-colors">
                   {item.title}
                 </h3>
-                <p className="text-sm text-[var(--color-muted)] leading-relaxed">
+                <p className="text-xs sm:text-sm text-[var(--color-muted)] leading-relaxed max-w-[60ch]">
                   {item.desc}
                 </p>
               </div>
             </div>
           ))}
         </div>
-
-        {/* Transition statement */}
-        <div className="mt-14 max-w-xl mx-auto text-center p-6 bg-[var(--color-bg-elevated)] rounded-2xl border border-[var(--color-gold)]/40 shadow-xs">
-          <p className="text-base sm:text-lg font-display font-semibold text-[var(--color-ink)]">
-            لو بتواجه أي نقطة من دول...{" "}
-            <span className="text-[var(--color-accent)]">هنا تحديداً بيبدأ دور الكورس.</span>
-          </p>
-        </div>
-      </Container>
-    </section>
+      </div>
+    </Section>
   );
 }

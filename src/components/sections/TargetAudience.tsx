@@ -1,155 +1,89 @@
 import React from "react";
-import { Container, Eyebrow } from "@/components/ui/Primitives";
-import { Users, Stethoscope, Megaphone, PenTool, Share2, Layers, Briefcase, Building } from "lucide-react";
+import { Section } from "@/components/ui/Section";
+import { DiamondMark } from "@/components/ui/motifs";
 
 export function TargetAudience() {
   const marketingRoles = [
-    {
-      title: "Content Creators",
-      role: "صنّاع المحتوى",
-      desc: "لو عايز تدخل تخصص طبي واضح ومرتفع العائد ومطلوب في السوق بقوة.",
-      icon: PenTool,
-    },
-    {
-      title: "Copywriters",
-      role: "كتّاب الإعلانات والنصوص",
-      desc: "عندك أساسيات الكتابة وعايز تفهم أسرار وسيكولوجية الـ Medical Market.",
-      icon: Megaphone,
-    },
-    {
-      title: "Social Media Specialists",
-      role: "متخصصو السوشيال ميديا",
-      desc: "بتدير صفحات أطباء أو عيادات ومحتاج استراتيجية محتوى تجلب حجوزات حقيقية.",
-      icon: Share2,
-    },
-    {
-      title: "Media Buyers",
-      role: "مديرو الحملات الإعلانية",
-      desc: "عايز تفهم الرسالة والـ Creative والـ Funnel بدل الاكتفاء بإطلاق الإعلان فقط.",
-      icon: Layers,
-    },
-    {
-      title: "Freelancers",
-      role: "المستقلون (Freelancers)",
-      desc: "استلمت عميل طبي أو مركز تجميل ومش عارف تبدأ منين وتبني له النتائج.",
-      icon: Briefcase,
-    },
-    {
-      title: "Agency Owners",
-      role: "أصحاب وكالات التسويق",
-      desc: "عايز تضيف خدمة Medical Marketing متكاملة وذات تسعير عالي لخدمات شركتك.",
-      icon: Building,
-    },
+    { title: "Content Creators", desc: "لو عايز تدخل تخصص طبي واضح ومطلوب بقوة في سوق الخليج ومصر." },
+    { title: "Copywriters", desc: "عندك أساسيات الكتابة وعايز تفهم أسرار وسيكولوجية الرعاية الصحية والـ Medical Market." },
+    { title: "Social Media Specialists", desc: "بتدير صفحات أطباء أو مراكز ومحتاج استراتيجية محتوى تجلب مرضى حقيقيين." },
+    { title: "Media Buyers", desc: "عايز تفهم صياغة الرسالة والـ Creative ومسار التحويل مش مجرد إطلاق إعلان." },
+    { title: "Freelancers", desc: "استلمت عميل طبي أو مركز تجميل ومحتاج خارطة طريق تبدأ منها وتضمن له النتائج." },
+    { title: "Agency Owners", desc: "عايز تضيف باقة Medical Performance Marketing متكاملة وذات تسعير عالي لخدماتك." },
   ];
 
   const medicalRoles = [
-    {
-      title: "الأطباء وأصحاب العيادات",
-      desc: "عايز تبني براند طبي موثوق وتفهم كيف يقيم فريق التسويق بدون أن تُخدع بالأرقام السطحية.",
-    },
-    {
-      title: "مديرو العيادات والمراكز والمستشفيات",
-      desc: "مسؤول عن تطوير الإيرادات وزيادة معدل حضور المرضى وملء جدول مواعيد الأطباء.",
-    },
-    {
-      title: "In-house Marketing Teams",
-      desc: "الفرق التسويقية الداخلية في المراكز الطبية التي تبحث عن منهجية موحدة للعمل والتطوير.",
-    },
-    {
-      title: "أفراد الفرق الطبية المسؤولين عن المحتوى",
-      desc: "الصيادلة، أطباء الأسنان، والتمريض المكلّفون بإنتاج وتدقيق المحتوى والتواصل.",
-    },
+    { title: "الأطباء وأصحاب العيادات", desc: "عايز تبني براند طبي موثوق وتفهم كيف تقيم فريق التسويق بدون أن تُخدع بالأرقام السطحية." },
+    { title: "مديرو العيادات والمراكز", desc: "مسؤول عن تطوير الإيرادات ورفع معدل حضور المرضى وملء جدول مواعيد الأطباء." },
+    { title: "In-house Marketing Teams", desc: "الفرق التسويقية الداخلية في المراكز الطبية التي تبحث عن منهجية عمل موحدة وقابلة للقياس." },
+    { title: "أفراد الفرق الطبية للمحتوى", desc: "الصيادلة، أطباء الأسنان، والتمريض المكلّفون بإنتاج وتدقيق المحتوى والتواصل الطبي." },
   ];
 
   return (
-    <section id="audience" className="py-20 bg-[var(--color-bg-sunken)]/40 border-b border-[var(--color-border)]">
-      <Container size="wide">
-        <div className="max-w-3xl mx-auto text-center space-y-4 mb-16">
-          <Eyebrow variant="gold">الفئات المستهدفة</Eyebrow>
-
-          <h2 className="font-display text-3xl sm:text-4xl text-[var(--color-ink)]">
-            لمن هذا الكورس؟
-          </h2>
-
-          <p className="text-base sm:text-lg text-[var(--color-ink-soft)] font-normal">
-            تم تصميم هذا المنهج لخدمة مسارين متكاملين في صناعة الرعاية الصحية
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* Column 1: Marketing & Content */}
-          <div className="lg:col-span-7 bg-[var(--color-bg-elevated)] p-6 sm:p-8 rounded-[var(--radius-card)] border border-[var(--color-border)] shadow-xs">
-            <div className="flex items-center gap-3 pb-5 mb-6 border-b border-[var(--color-border)]">
-              <div className="w-10 h-10 rounded-full bg-[var(--color-accent)]/10 text-[var(--color-accent)] flex items-center justify-center">
-                <Users className="w-5 h-5" />
-              </div>
-              <div>
-                <span className="text-xs font-semibold text-[var(--color-accent)] uppercase tracking-wider block">
-                  المسار الأول
-                </span>
-                <h3 className="font-display text-xl font-bold text-[var(--color-ink)]">
-                  Marketing & Content Professionals
-                </h3>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {marketingRoles.map((role, idx) => {
-                const IconComponent = role.icon;
-                return (
-                  <div
-                    key={idx}
-                    className="p-4 rounded-xl bg-[var(--color-bg)] border border-[var(--color-border)] hover:border-[var(--color-accent)]/40 transition-colors"
-                  >
-                    <div className="flex items-center gap-2.5 mb-1.5">
-                      <IconComponent className="w-4 h-4 text-[var(--color-accent)] shrink-0" />
-                      <h4 className="font-display text-sm font-bold text-[var(--color-ink)]">
-                        {role.title}
-                      </h4>
-                    </div>
-                    <p className="text-xs text-[var(--color-muted)] leading-relaxed">
-                      {role.desc}
-                    </p>
-                  </div>
-                );
-              })}
-            </div>
+    <Section
+      id="audience"
+      eyebrow="الفئات المستهدفة"
+      title="لمن هذا الكورس؟"
+      description="تم تصميم هذا المنهج لخدمة مسارين متكاملين في صناعة الرعاية الصحية والتسويق المتخصص"
+      tone="sunken"
+    >
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+        {/* Track 1: Marketing & Content */}
+        <div className="space-y-6">
+          <div className="pb-3 border-b border-[var(--color-border-strong)]">
+            <span className="text-xs font-semibold text-[var(--color-accent)] uppercase tracking-wider block mb-1">
+              المسار الأول
+            </span>
+            <h3 className="font-display text-2xl font-bold text-[var(--color-ink)]">
+              Marketing & Content Professionals
+            </h3>
           </div>
 
-          {/* Column 2: Medical Sector */}
-          <div className="lg:col-span-5 bg-[var(--color-bg-elevated)] p-6 sm:p-8 rounded-[var(--radius-card)] border border-[var(--color-border)] shadow-xs">
-            <div className="flex items-center gap-3 pb-5 mb-6 border-b border-[var(--color-border)]">
-              <div className="w-10 h-10 rounded-full bg-[var(--color-gold)]/10 text-[var(--color-gold-deep)] flex items-center justify-center">
-                <Stethoscope className="w-5 h-5" />
-              </div>
-              <div>
-                <span className="text-xs font-semibold text-[var(--color-gold-deep)] uppercase tracking-wider block">
-                  المسار الثاني
-                </span>
-                <h3 className="font-display text-xl font-bold text-[var(--color-ink)]">
-                  Medical Sector & Clinics
-                </h3>
-              </div>
-            </div>
-
-            <div className="space-y-4">
-              {medicalRoles.map((role, idx) => (
-                <div
-                  key={idx}
-                  className="p-4 rounded-xl bg-[var(--color-bg)] border border-[var(--color-border)] hover:border-[var(--color-gold)]/50 transition-colors"
-                >
-                  <h4 className="font-display text-sm font-bold text-[var(--color-ink)] mb-1">
+          <div className="divide-y divide-[var(--color-border)]">
+            {marketingRoles.map((role) => (
+              <div key={role.title} className="py-4 first:pt-0 last:pb-0 text-right">
+                <div className="flex items-center gap-2 mb-1">
+                  <DiamondMark className="text-xs" />
+                  <h4 className="font-display text-sm font-bold text-[var(--color-ink)]">
                     {role.title}
                   </h4>
-                  <p className="text-xs text-[var(--color-muted)] leading-relaxed">
-                    {role.desc}
-                  </p>
                 </div>
-              ))}
-            </div>
+                <p className="text-xs sm:text-sm text-[var(--color-muted)] leading-relaxed ps-4">
+                  {role.desc}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
-      </Container>
-    </section>
+
+        {/* Track 2: Medical Sector */}
+        <div className="space-y-6">
+          <div className="pb-3 border-b border-[var(--color-border-strong)]">
+            <span className="text-xs font-semibold text-[var(--color-gold-deep)] uppercase tracking-wider block mb-1">
+              المسار الثاني
+            </span>
+            <h3 className="font-display text-2xl font-bold text-[var(--color-ink)]">
+              Medical Sector & Clinics
+            </h3>
+          </div>
+
+          <div className="divide-y divide-[var(--color-border)]">
+            {medicalRoles.map((role) => (
+              <div key={role.title} className="py-4 first:pt-0 last:pb-0 text-right">
+                <div className="flex items-center gap-2 mb-1">
+                  <DiamondMark className="text-xs text-[var(--color-gold-deep)]" />
+                  <h4 className="font-display text-sm font-bold text-[var(--color-ink)]">
+                    {role.title}
+                  </h4>
+                </div>
+                <p className="text-xs sm:text-sm text-[var(--color-muted)] leading-relaxed ps-4">
+                  {role.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </Section>
   );
 }

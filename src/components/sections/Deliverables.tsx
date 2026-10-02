@@ -1,75 +1,93 @@
 import React from "react";
-import { Container, Eyebrow } from "@/components/ui/Primitives";
-import { Folder, FileCheck2, Download } from "lucide-react";
+import { Section } from "@/components/ui/Section";
+import { DiamondMark } from "@/components/ui/motifs";
+import { FileText } from "lucide-react";
 
 export function Deliverables() {
-  const toolkits = [
-    { title: "Medical Business Diagnosis", category: "Business & Strategy" },
-    { title: "Medical Market & Service Map", category: "Market Research" },
-    { title: "Competitor Research Matrix", category: "Market Research" },
-    { title: "Voice of Customer Bank", category: "Audience & Psychology" },
-    { title: "Patient Journey Map", category: "Patient Journey" },
-    { title: "Segment Map", category: "Audience & Psychology" },
-    { title: "Persona Cards", category: "Audience & Psychology" },
-    { title: "Pain & Objection Bank", category: "Audience & Psychology" },
-    { title: "Positioning Statement", category: "Brand Positioning" },
-    { title: "Ethical Offer Framework", category: "Brand Positioning" },
-    { title: "Value Proposition Canvas", category: "Brand Positioning" },
-    { title: "Messaging Strategy Dossier", category: "Copywriting & Content" },
-    { title: "Content Pillars Guide", category: "Copywriting & Content" },
-    { title: "Campaign Angles Matrix", category: "Copywriting & Content" },
-    { title: "Hook Bank (100+ Hooks)", category: "Copywriting & Content" },
-    { title: "Reels Scripts Templates", category: "Copywriting & Content" },
-    { title: "Social Posts Templates", category: "Copywriting & Content" },
-    { title: "High-Converting Ad Copy", category: "Paid Advertising" },
-    { title: "Comprehensive Content Plan", category: "Copywriting & Content" },
-    { title: "Medical Funnel Blueprint", category: "Performance & CRO" },
-    { title: "CRO Audit Checklist", category: "Performance & CRO" },
-    { title: "Measurement & KPI Plan", category: "Performance & Analytics" },
-    { title: "AI Prompt Frameworks", category: "AI Native Workflow" },
+  const groups = [
+    {
+      category: "01. البيزنس وأبحاث السوق",
+      english: "Business & Market Intelligence",
+      items: [
+        "Medical Business Diagnosis",
+        "Medical Market & Service Map",
+        "Competitor Research Matrix",
+      ],
+    },
+    {
+      category: "02. سيكولوجية المريض والجمهور",
+      english: "Audience & Patient Journey",
+      items: [
+        "Voice of Customer Bank",
+        "Patient Journey Map",
+        "Segment Map",
+        "Persona Cards",
+        "Pain & Objection Bank",
+      ],
+    },
+    {
+      category: "03. التموضع وهندسة المحتوى",
+      english: "Positioning & Creative Copy",
+      items: [
+        "Positioning Statement",
+        "Ethical Offer Framework",
+        "Value Proposition Canvas",
+        "Messaging Strategy Dossier",
+        "Content Pillars Guide",
+        "Campaign Angles Matrix",
+        "Hook Bank (100+ Hooks)",
+        "Reels Scripts Templates",
+        "Social Posts Templates",
+        "High-Converting Ad Copy",
+        "Comprehensive Content Plan",
+      ],
+    },
+    {
+      category: "04. مسارات التحويل والقياس والـ AI",
+      english: "Funnels, CRO & AI Native",
+      items: [
+        "Medical Funnel Blueprint",
+        "CRO Audit Checklist",
+        "Measurement & KPI Plan",
+        "AI Native Workflow & Prompt Framework",
+      ],
+    },
   ];
 
   return (
-    <section className="py-20 bg-[var(--color-bg-sunken)]/50 border-t border-[var(--color-border)]">
-      <Container size="wide">
-        <div className="max-w-3xl mx-auto text-center space-y-4 mb-16">
-          <Eyebrow variant="terracotta">حقيبة الأدوات والملفات الجاهزة</Eyebrow>
-
-          <h2 className="font-display text-3xl sm:text-4xl text-[var(--color-ink)]">
-            مخرجات الكورس (Marketing Toolkit)
-          </h2>
-
-          <p className="text-base sm:text-lg text-[var(--color-ink-soft)] font-normal">
-            مش هتخرج بمعلومات ونظريات فقط... هتخرج بـ{" "}
-            <strong className="text-[var(--color-accent)] font-semibold">
-              حقيبة مخرجات وأدوات عملية جاهزة للتطبيق الفوري
-            </strong>{" "}
-            مع أي عيادة أو مشروع طبي.
-          </p>
-        </div>
-
-        {/* Deliverables Stacked Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {toolkits.map((item, idx) => (
-            <div
-              key={idx}
-              className="bg-[var(--color-bg-elevated)] p-4 sm:p-5 rounded-2xl border border-[var(--color-border)] hover:border-[var(--color-accent)] transition-all duration-200 shadow-2xs hover:shadow-xs group flex items-start gap-3.5"
-            >
-              <div className="w-9 h-9 rounded-xl bg-[var(--color-accent)]/10 text-[var(--color-accent)] flex items-center justify-center shrink-0 group-hover:bg-[var(--color-accent)] group-hover:text-white transition-colors">
-                <Folder className="w-4 h-4" />
-              </div>
-              <div className="min-w-0">
-                <span className="text-[10px] font-semibold text-[var(--color-gold-deep)] uppercase tracking-wider block mb-0.5 truncate">
-                  {item.category}
-                </span>
-                <h3 className="font-display text-xs sm:text-sm font-bold text-[var(--color-ink)] leading-snug group-hover:text-[var(--color-accent)] transition-colors">
-                  {item.title}
-                </h3>
-              </div>
+    <Section
+      id="deliverables"
+      eyebrow="حقيبة الأدوات والملفات"
+      title="مخرجات الكورس (Marketing Toolkit)"
+      description="مش هتخرج بمعلومات ونظريات فقط... هتخرج بحقيبة متكاملة من 23 ملفاً وقالب ومخطط عمل جاهز للتطبيق الفوري مع أي عيادة أو نشاط طبي"
+      tone="sunken"
+    >
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 items-start">
+        {groups.map((group) => (
+          <div key={group.category} className="space-y-4 text-right">
+            <div className="pb-3 border-b border-[var(--color-border-strong)]">
+              <span className="font-display text-base font-bold text-[var(--color-ink)] block">
+                {group.category}
+              </span>
+              <span className="text-[11px] font-mono text-[var(--color-gold-deep)]">
+                {group.english}
+              </span>
             </div>
-          ))}
-        </div>
-      </Container>
-    </section>
+
+            <ul className="space-y-2.5">
+              {group.items.map((item) => (
+                <li
+                  key={item}
+                  className="flex items-start gap-2 text-xs sm:text-sm text-[var(--color-ink-soft)] hover:text-[var(--color-accent)] transition-colors group cursor-default"
+                >
+                  <FileText className="w-3.5 h-3.5 text-[var(--color-gold-deep)] group-hover:text-[var(--color-accent)] shrink-0 mt-0.5 transition-colors" />
+                  <span className="leading-snug">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </Section>
   );
 }

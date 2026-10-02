@@ -1,111 +1,103 @@
 import React from "react";
 import { siteConfig } from "@/config/site";
-import { Container, Eyebrow, BrassRule } from "@/components/ui/Primitives";
+import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
-import { ArchImagePlaceholder } from "@/components/ui/ArchImagePlaceholder";
-import { Award, Briefcase, Users, CheckCircle2 } from "lucide-react";
+import { ArchFrame, DiamondMark } from "@/components/ui/motifs";
+import { User, CheckCircle2 } from "lucide-react";
 
 export function Instructor() {
-  const experiences = [
-    "كتابة أكثر من 4,000 منشور إعلاني وتسويقي لمختلف القطاعات.",
-    "تدريب أكثر من 2,000 متدرب في مجال صناعة المحتوى والكتابة الإعلانية.",
-    "تقديم ورش عمل تدريبية متخصصة في الـ Copywriting والـ Content Creation والـ Storytelling.",
-    "العمل المباشر مع أطباء وعيادات ومراكز طبية وخدمية في 5 دول عربية.",
+  const stats = [
+    { value: "+4,000", label: "منشور إعلاني وتسويقي" },
+    { value: "+2,000", label: "متدرب في صناعة المحتوى" },
+    { value: "+6", label: "سنوات خبرة عملية" },
+    { value: "5", label: "دول عربية تم العمل معها" },
   ];
 
-  const skillBadges = [
-    "Copywriting",
-    "Content Marketing",
-    "Social Media",
-    "Digital Advertising",
-    "Marketing Strategy",
-    "Healthcare Positioning",
+  const highlights = [
+    "متخصص في الـ Copywriting والتسويق الرقمي بخبرة عملية تتجاوز 6 سنوات.",
+    "عمل مع شركات ومراكز طبية وتجارية في مصر والكويت والإمارات والأردن والسعودية.",
+    "يجمع بين: Copywriting + Content Strategy + Digital Advertising + Healthcare Funnels.",
+    "تقديم ورش عمل تدريبية متخصصة في الـ Storytelling والكتابة الإعلانية المحولة.",
   ];
 
   return (
-    <section id="instructor" className="py-20 bg-[var(--color-bg-sunken)]/40 border-b border-[var(--color-border)]">
-      <Container size="wide">
-        <div className="max-w-3xl mx-auto text-center space-y-4 mb-16">
-          <Eyebrow variant="gold">عن المحاضر</Eyebrow>
-
-          <h2 className="font-display text-3xl sm:text-4xl text-[var(--color-ink)]">
-            تعلّم المنهج من خبير يمارس المجال ويدرّب عليه
-          </h2>
-
-          <p className="text-base sm:text-lg text-[var(--color-ink-soft)] font-normal">
-            خبرة عملية واقعية في بناء الاستراتيجيات وصناعة الإعلانات وتحقيق المبيعات
-          </p>
-        </div>
-
-        {/* Instructor Card Layout */}
-        <div className="max-w-5xl mx-auto bg-[var(--color-bg-elevated)] rounded-[var(--radius-card)] border border-[var(--color-border)] p-8 sm:p-12 shadow-sm">
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 items-center">
-            {/* Instructor Photo Arch (Right side in RTL) */}
-            <div className="md:col-span-5 flex justify-center">
-              <div className="w-full max-w-sm">
-                <ArchImagePlaceholder
-                  aspectRatio="aspect-[3/4]"
-                  label="محمد العدوي"
-                  badge="Founder & CEO — Copyway"
-                />
+    <Section
+      id="instructor"
+      eyebrow="عن المحاضر والمدرّب"
+      title="تعلّم المنهج من ممارس بالمجال يدرّب عليه"
+      description="خبرة عملية واقعية في بناء الاستراتيجيات وصناعة الإعلانات وتحقيق المبيعات للعيادات والمراكز الطبية"
+      tone="sunken"
+    >
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        {/* Arch Frame Portrait (Right in RTL) */}
+        <div className="lg:col-span-5 flex justify-center">
+          <ArchFrame
+            badge="Founder & CEO — Copyway"
+            className="w-full max-w-sm"
+          >
+            <div className="flex flex-col items-center gap-3 py-6">
+              <div className="w-20 h-20 rounded-full bg-[var(--color-bg-sunken)] border border-[var(--color-gold)]/40 flex items-center justify-center text-[var(--color-gold-deep)] shadow-inner">
+                <User className="w-10 h-10 stroke-[1.2]" />
               </div>
-            </div>
-
-            {/* Bio & Details (Left side in RTL) */}
-            <div className="md:col-span-7 space-y-6 text-right">
-              <div>
-                <span className="text-xs font-semibold px-3 py-1 rounded-full bg-[var(--color-accent)]/10 text-[var(--color-accent)] mb-2 inline-block">
-                  المحاضر والمدرّب
-                </span>
-                <h3 className="font-display text-3xl font-bold text-[var(--color-ink)]">
+              <div className="space-y-1">
+                <h3 className="font-display text-xl font-bold text-[var(--color-ink)]">
                   محمد العدوي
                 </h3>
-                <p className="text-sm font-medium text-[var(--color-gold-deep)] mt-1">
+                <p className="text-xs text-[var(--color-gold-deep)] font-medium">
                   Founder & CEO — Copyway
                 </p>
               </div>
-
-              <p className="text-sm sm:text-base text-[var(--color-ink-soft)] leading-relaxed font-normal">
-                متخصص في الـ Copywriting والتسويق الرقمي بخبرة عملية تتجاوز 6 سنوات، عمل خلالها مع شركات وأنشطة تجارية وخدمية وطبية في مصر والكويت والإمارات والأردن والسعودية.
-              </p>
-
-              {/* Skills badges */}
-              <div className="flex flex-wrap gap-2 pt-1">
-                {skillBadges.map((skill) => (
-                  <span
-                    key={skill}
-                    className="text-xs font-medium px-3 py-1 rounded-full bg-[var(--color-bg)] border border-[var(--color-border)] text-[var(--color-ink)]"
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
-
-              {/* Key Highlights */}
-              <div className="space-y-2.5 pt-2 border-t border-[var(--color-border)]">
-                {experiences.map((exp, idx) => (
-                  <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-[var(--color-muted)]">
-                    <CheckCircle2 className="w-4 h-4 text-[var(--color-accent)] shrink-0 mt-0.5" />
-                    <span>{exp}</span>
-                  </div>
-                ))}
-              </div>
-
-              {/* CTA */}
-              <div className="pt-4">
-                <Button
-                  isWhatsApp
-                  customMessage="مرحبًا أستاذ محمد، أود الانضمام لكورس التسويق الطبي تحت إشرافك"
-                  size="default"
-                  variant="terracotta"
-                >
-                  انضم للتدريب مع محمد العدوي
-                </Button>
-              </div>
             </div>
+          </ArchFrame>
+        </div>
+
+        {/* Narrative & Credentials (Left in RTL) */}
+        <div className="lg:col-span-7 space-y-8 text-right">
+          <div className="space-y-4">
+            <h3 className="font-display text-2xl sm:text-3xl font-bold text-[var(--color-ink)]">
+              محمد العدوي
+            </h3>
+            <p className="text-base text-[var(--color-ink-soft)] leading-relaxed max-w-[60ch]">
+              متخصص في الـ Copywriting والتسويق الرقمي وبناء مسارات التحويل، بخبرة عملية ممتدة مع العيادات والمراكز الطبية التخصصية والتجميلية في 5 دول عربية.
+            </p>
+          </div>
+
+          {/* Numbers / Stats Colonnade */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 py-6 border-y border-[var(--color-border-strong)]">
+            {stats.map((s) => (
+              <div key={s.label} className="space-y-1">
+                <span className="font-display text-2xl sm:text-3xl font-bold text-[var(--color-accent)] block tabular-nums">
+                  {s.value}
+                </span>
+                <span className="text-xs text-[var(--color-muted)] font-medium leading-snug block">
+                  {s.label}
+                </span>
+              </div>
+            ))}
+          </div>
+
+          {/* Highlights */}
+          <ul className="space-y-3">
+            {highlights.map((h, idx) => (
+              <li key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-[var(--color-ink-soft)]">
+                <DiamondMark className="mt-1" />
+                <span className="leading-relaxed">{h}</span>
+              </li>
+            ))}
+          </ul>
+
+          <div className="pt-2">
+            <Button
+              isWhatsApp
+              customMessage="مرحبًا أستاذ محمد العدوي، أود الانضمام لبرنامج التدريب الطبي تحت إشرافك"
+              size="lg"
+              variant="terracotta"
+            >
+              انضم للتدريب مع محمد العدوي
+            </Button>
           </div>
         </div>
-      </Container>
-    </section>
+      </div>
+    </Section>
   );
 }
