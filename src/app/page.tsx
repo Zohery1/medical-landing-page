@@ -30,11 +30,14 @@ export default function LandingPage() {
       {/* Scroll Progress Laser Line */}
       <ScrollProgress />
 
-      {/* 02 — OFFER BAR (Sticky at top) */}
-      <OfferBar />
+      {/* Sticky Header: OfferBar (Countdown) + Navbar pinned together 100% of the time */}
+      <div className="sticky top-0 z-50 w-full shadow-xs">
+        {/* 02 — OFFER BAR (Sticky Countdown) */}
+        <OfferBar />
 
-      {/* 01 — NAVBAR */}
-      <Navbar />
+        {/* 01 — NAVBAR */}
+        <Navbar />
+      </div>
 
       {/* 03 — HERO */}
       <Hero />

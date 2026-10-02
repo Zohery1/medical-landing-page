@@ -21,10 +21,10 @@ export function Navbar() {
 
   return (
     <header
-      className={`sticky top-0 z-40 w-full transition-all duration-200 ${
+      className={`w-full transition-all duration-200 ${
         scrolled
-          ? "bg-[var(--color-bg)]/90 backdrop-blur-md border-b border-[var(--color-border)] shadow-xs"
-          : "bg-[var(--color-bg)]/60 backdrop-blur-xs border-b border-transparent"
+          ? "bg-[var(--color-bg)]/95 backdrop-blur-md border-b border-[var(--color-border)] shadow-xs"
+          : "bg-[var(--color-bg)]/90 backdrop-blur-md border-b border-[var(--color-border)]"
       }`}
     >
       <Container size="wide">
