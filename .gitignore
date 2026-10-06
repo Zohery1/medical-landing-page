@@ -6,3 +6,5 @@ out
 *.docx
 tsconfig.tsbuildinfo
 photos/
+
+.vercel
