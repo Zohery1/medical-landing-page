@@ -21,6 +21,7 @@ import { Faq } from "@/components/sections/Faq";
 import { FinalCta } from "@/components/sections/FinalCta";
 import { Footer } from "@/components/sections/Footer";
 import { FloatingWhatsApp } from "@/components/sections/FloatingWhatsApp";
+import { FloatingSubscribe } from "@/components/sections/FloatingSubscribe";
 
 import { ScrollProgress } from "@/components/ui/motion-primitives";
 
@@ -98,6 +99,9 @@ export default function LandingPage() {
 
       {/* 22 — Floating WhatsApp Button */}
       <FloatingWhatsApp />
+
+      {/* 23 — Floating Subscribe Button (Mobile Only) */}
+      <FloatingSubscribe />
     </main>
   );
 }

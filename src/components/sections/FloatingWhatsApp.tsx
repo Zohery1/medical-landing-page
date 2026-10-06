@@ -9,8 +9,8 @@ export function FloatingWhatsApp() {
   const [showTooltip, setShowTooltip] = useState(true);
 
   return (
-    <div className="fixed bottom-6 left-6 z-50 flex items-end gap-3 select-none">
-      {/* Tooltip bubble with AnimatePresence */}
+    <div className="fixed bottom-5 left-4 md:bottom-6 md:left-6 z-50 flex items-end gap-3 select-none">
+      {/* Tooltip bubble with AnimatePresence (visible on sm screens and up) */}
       <AnimatePresence>
         {showTooltip && (
           <motion.div
@@ -18,7 +18,7 @@ export function FloatingWhatsApp() {
             animate={{ opacity: 1, scale: 1, x: 0 }}
             exit={{ opacity: 0, scale: 0.96, x: -8 }}
             transition={{ type: "spring", stiffness: 350, damping: 26 }}
-            className="relative bg-[var(--color-bg-elevated)] text-[var(--color-ink)] px-4 py-2.5 rounded-2xl shadow-xl border border-[var(--color-border-strong)] text-xs font-semibold max-w-[230px] text-right flex items-center justify-between gap-2.5"
+            className="relative hidden sm:flex bg-[var(--color-bg-elevated)] text-[var(--color-ink)] px-4 py-2.5 rounded-2xl shadow-xl border border-[var(--color-border-strong)] text-xs font-semibold max-w-[230px] text-right items-center justify-between gap-2.5"
           >
             <div className="flex items-start gap-2">
               <MessageCircle className="w-4 h-4 text-[var(--color-accent)] shrink-0 mt-0.5" />
