@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { siteConfig } from "@/config/site";
 import { Container } from "@/components/ui/Primitives";
+import { Clock } from "lucide-react";
 
 export function OfferBar() {
   const [timeLeft, setTimeLeft] = useState({
@@ -53,18 +54,19 @@ export function OfferBar() {
 
           {/* Countdown Clock */}
           <div className="flex items-center gap-2 font-mono text-xs">
-            <span className="font-sans text-xs text-[var(--color-gold-deep)] font-medium">
-              ⏳ ينتهي العرض خلال:
+            <span className="font-sans text-xs text-[var(--color-gold-deep)] font-semibold flex items-center gap-1.5">
+              <Clock className="w-3.5 h-3.5 text-[var(--color-accent)] animate-pulse" />
+              <span>ينتهي العرض خلال:</span>
             </span>
 
-            <div className="flex items-center gap-1 bg-[var(--color-bg-elevated)] px-2.5 py-0.5 rounded-md border border-[var(--color-border)] text-[var(--color-ink)] font-bold tabular-nums">
-              <span>{timeLeft.days}</span>
-              <span className="text-[var(--color-gold)]">:</span>
-              <span>{timeLeft.hours}</span>
-              <span className="text-[var(--color-gold)]">:</span>
-              <span>{timeLeft.minutes}</span>
-              <span className="text-[var(--color-gold)]">:</span>
-              <span className="text-[var(--color-accent)]">{timeLeft.seconds}</span>
+            <div className="flex items-center gap-1 bg-[var(--color-bg-elevated)] px-2.5 py-0.5 rounded-lg border border-[var(--color-border)] text-[var(--color-ink)] font-bold tabular-nums shadow-2xs">
+              <span className="font-mono text-xs">{timeLeft.days}</span>
+              <span className="text-[var(--color-gold)] select-none">:</span>
+              <span className="font-mono text-xs">{timeLeft.hours}</span>
+              <span className="text-[var(--color-gold)] select-none">:</span>
+              <span className="font-mono text-xs">{timeLeft.minutes}</span>
+              <span className="text-[var(--color-gold)] select-none">:</span>
+              <span className="font-mono text-xs text-[var(--color-accent)]">{timeLeft.seconds}</span>
             </div>
           </div>
         </div>

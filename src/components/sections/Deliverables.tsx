@@ -43,26 +43,20 @@ export function Deliverables() {
     >
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 max-w-5xl text-right">
         {items.map((item, idx) => (
-          <Reveal key={item} direction="up" delay={idx * 0.025}>
-            <TiltCard intensity={6} glare={false}>
-              <motion.div
-                whileHover={{ y: -3, borderColor: "var(--color-accent)" }}
-                className="py-3 px-4 rounded-xl bg-[var(--color-bg-elevated)] border border-[var(--color-border)] flex items-center gap-3 shadow-2xs transition-colors group cursor-default"
-              >
+          <Reveal key={item} direction="up" delay={idx * 0.02}>
+            <div className="p-0.5 rounded-2xl bg-[var(--color-border)]/50 hover:bg-gradient-to-b hover:from-[var(--color-accent)]/20 hover:to-[var(--color-gold)]/15 border border-transparent hover:border-[var(--color-accent)]/30 transition-[background-color,border-color,box-shadow,transform] duration-200 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 shadow-2xs hover:shadow-[0_12px_24px_-6px_rgba(22,21,20,0.06)] group cursor-default">
+              <div className="py-3 px-4 rounded-[calc(1rem-0.125rem)] bg-[var(--color-bg-elevated)] shadow-[inset_0_1px_1px_rgba(255,255,255,0.9)] flex items-center gap-3">
                 <span className="font-mono text-xs font-bold text-[var(--color-gold-deep)] w-6 shrink-0 group-hover:text-[var(--color-accent)] transition-colors">
                   {idx + 1 < 10 ? `0${idx + 1}` : idx + 1}
                 </span>
-                <motion.div
-                  whileHover={{ rotate: 15, scale: 1.15 }}
-                  className="shrink-0"
-                >
-                  <FileText className="w-4 h-4 text-[var(--color-accent)]" />
-                </motion.div>
+                <div className="w-7 h-7 rounded-lg bg-[var(--color-accent)]/10 flex items-center justify-center shrink-0 group-hover:bg-[var(--color-accent)]/15 transition-colors">
+                  <FileText className="w-3.5 h-3.5 text-[var(--color-accent)]" />
+                </div>
                 <span className="font-display text-sm font-bold text-[var(--color-ink)] truncate group-hover:text-[var(--color-accent)] transition-colors">
                   {item}
                 </span>
-              </motion.div>
-            </TiltCard>
+              </div>
+            </div>
           </Reveal>
         ))}
       </div>

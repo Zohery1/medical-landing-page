@@ -35,7 +35,7 @@ export function Section({
     <section
       id={id}
       className={cn(
-        "scroll-mt-20 py-20 md:py-28 lg:py-32 relative",
+        "scroll-mt-24 py-24 sm:py-28 md:py-32 lg:py-36 relative",
         tone === "elevated" && "border-y border-[var(--color-border)] bg-[var(--color-bg-elevated)]",
         tone === "sunken" && "border-y border-[var(--color-gold)]/20 bg-[var(--color-bg-sunken)]/60",
         className
@@ -59,8 +59,8 @@ export function Section({
             />
 
             {eyebrow && (
-              <span className="eyebrow inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[var(--color-gold-deep)]">
-                <DiamondMark />
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-gold)]/10 border border-[var(--color-gold)]/30 text-[11px] font-semibold tracking-wider text-[var(--color-gold-deep)] shadow-2xs">
+                <DiamondMark className="text-[9px]" />
                 {eyebrow}
               </span>
             )}

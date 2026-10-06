@@ -18,47 +18,48 @@ export function Pricing() {
     >
       <Reveal direction="up" delay={0.1}>
         <div className="max-w-xl mx-auto">
-          <TiltCard intensity={10}>
-            <div className="bg-[var(--color-bg-elevated)] rounded-3xl border-2 border-[var(--color-accent)] p-8 sm:p-12 shadow-xl text-center space-y-8 relative overflow-hidden">
+          {/* Flagship Double-Bezel (Doppelrand) Architecture */}
+          <div className="relative rounded-[2.5rem] p-2 bg-gradient-to-b from-[var(--color-accent)]/25 via-[var(--color-gold)]/15 to-[var(--color-accent)]/20 border border-[var(--color-accent)]/30 shadow-[0_24px_60px_-15px_rgba(168,76,38,0.18)] transition-transform duration-200 hover:-translate-y-1">
+            <div className="bg-[var(--color-bg-elevated)] rounded-[calc(2.5rem-0.5rem)] p-8 sm:p-12 shadow-[inset_0_1px_1px_rgba(255,255,255,0.95)] text-center space-y-8 relative overflow-hidden">
               {/* Decorative top terracotta light */}
               <div className="absolute top-0 right-0 left-0 h-1.5 bg-gradient-to-l from-[var(--color-accent)] via-[var(--color-gold)] to-[var(--color-accent)]" />
 
               <div>
                 <motion.span
-                  animate={{ scale: [1, 1.05, 1] }}
-                  transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
-                  className="text-xs font-semibold px-3.5 py-1 rounded-full bg-[var(--color-accent)]/10 text-[var(--color-accent)] uppercase tracking-wider inline-block mb-3 border border-[var(--color-accent)]/20"
+                  animate={{ scale: [1, 1.04, 1] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                  className="text-xs font-semibold px-4 py-1 rounded-full bg-[var(--color-accent)]/10 text-[var(--color-accent)] uppercase tracking-wider inline-block mb-3 border border-[var(--color-accent)]/20 shadow-2xs"
                 >
-                  السعر المعتمد
+                  السعر المعتمد الحالي
                 </motion.span>
-                <div className="flex items-baseline justify-center gap-2">
-                  <motion.span
-                    animate={{ scale: [1, 1.02, 1] }}
-                    transition={{ duration: 3, repeat: Infinity }}
-                    className="font-display text-5xl sm:text-6xl font-extrabold text-[var(--color-accent)] tabular-nums"
-                  >
+                <div className="flex items-baseline justify-center gap-2 mt-1">
+                  <span className="font-display text-5xl sm:text-6xl lg:text-7xl font-extrabold text-[var(--color-accent)] tabular-nums tracking-tight">
                     2,000
-                  </motion.span>
-                  <span className="text-base sm:text-lg font-bold text-[var(--color-ink)]">
-                    جنيه
+                  </span>
+                  <span className="text-base sm:text-xl font-bold text-[var(--color-ink)]">
+                    جنيه مصري
                   </span>
                 </div>
               </div>
 
-              <div>
-                <ShimmerButtonWrapper className="inline-block">
+              <div className="space-y-4">
+                <ShimmerButtonWrapper className="inline-block w-full sm:w-auto">
                   <Button
                     isWhatsApp
                     size="lg"
                     variant="terracotta"
-                    className="w-full sm:w-auto px-12 text-base shadow-lg shadow-[var(--color-accent)]/25"
+                    className="w-full sm:w-auto px-10 text-base shadow-xl shadow-[var(--color-accent)]/25"
                   >
-                    اشترك الآن
+                    اشترك الآن في الكورس
                   </Button>
                 </ShimmerButtonWrapper>
+
+                <p className="text-xs sm:text-sm text-[var(--color-muted)] font-medium max-w-sm mx-auto leading-relaxed">
+                  دورة مسجلة تطبيقية + تطبيقات + Templates + مخرجات عملية
+                </p>
               </div>
             </div>
-          </TiltCard>
+          </div>
         </div>
       </Reveal>
     </Section>

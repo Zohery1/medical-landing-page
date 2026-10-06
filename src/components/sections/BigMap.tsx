@@ -23,12 +23,12 @@ export function BigMap() {
   ];
 
   return (
-    <section className="py-20 sm:py-24 bg-[var(--color-bg)] relative overflow-hidden">
+    <section className="py-24 sm:py-32 bg-[var(--color-bg)] relative overflow-hidden">
       <Container size="wide">
         {/* Header */}
         <div className="max-w-3xl mx-auto text-center space-y-4 mb-16">
           <Reveal direction="down">
-            <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[var(--color-gold)]/10 text-[var(--color-gold-deep)] border border-[var(--color-gold)]/30 text-xs font-bold">
+            <span className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[var(--color-gold)]/10 text-[var(--color-gold-deep)] border border-[var(--color-gold)]/30 text-xs font-bold shadow-2xs">
               <Milestone className="w-3.5 h-3.5 text-[var(--color-accent)]" />
               <span>Visual Journey</span>
             </span>
@@ -66,21 +66,23 @@ export function BigMap() {
                   >
                     {/* Step Card Content */}
                     <div className="w-full md:w-1/2 pr-14 md:pr-0">
-                      <div className="p-5 rounded-2xl bg-[var(--color-bg-elevated)] border border-[var(--color-border)] hover:border-[var(--color-accent)] hover:shadow-lg transition-all duration-150 group cursor-default shadow-xs">
-                        <div className="flex items-center justify-between gap-3">
-                          <span className="font-display text-base sm:text-lg font-bold text-[var(--color-ink)] group-hover:text-[var(--color-accent)] transition-colors">
+                      <div className="p-1 rounded-[1.5rem] bg-[var(--color-border)]/50 hover:bg-gradient-to-b hover:from-[var(--color-accent)]/20 hover:to-[var(--color-gold)]/10 border border-transparent hover:border-[var(--color-accent)]/30 transition-[background-color,border-color,box-shadow,transform] duration-200 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 shadow-2xs hover:shadow-[0_12px_28px_-8px_rgba(22,21,20,0.06)] group cursor-default">
+                        <div className="p-4 sm:p-5 rounded-[calc(1.5rem-0.25rem)] bg-[var(--color-bg-elevated)] shadow-[inset_0_1px_1px_rgba(255,255,255,0.9)] flex items-center justify-between gap-3">
+                          <span className="font-display text-base sm:text-lg font-bold text-[var(--color-ink)] group-hover:text-[var(--color-accent)] transition-colors duration-150">
                             {step.title}
                           </span>
-                          <span className="font-mono text-xs font-bold px-2.5 py-1 rounded-md bg-[var(--color-bg-sunken)] text-[var(--color-gold-deep)] border border-[var(--color-border)] group-hover:border-[var(--color-accent)]/30 group-hover:text-[var(--color-accent)] transition-colors shrink-0">
+                          <span className="font-mono text-xs font-bold px-2.5 py-1 rounded-lg bg-[var(--color-bg-sunken)] text-[var(--color-gold-deep)] border border-[var(--color-border)] group-hover:border-[var(--color-accent)]/30 group-hover:text-[var(--color-accent)] transition-colors duration-150 shrink-0">
                             {step.num}
                           </span>
                         </div>
                       </div>
                     </div>
 
-                    {/* Milestone Center Node on the Spine */}
-                    <div className="absolute right-3.5 md:relative md:right-auto w-8 h-8 rounded-full bg-[var(--color-bg-elevated)] border-2 border-[var(--color-gold)] text-[var(--color-accent)] font-bold text-xs flex items-center justify-center shrink-0 shadow-sm z-10 font-mono group-hover:scale-110 group-hover:border-[var(--color-accent)] transition-all">
-                      <span className="text-[10px] text-[var(--color-gold-deep)] font-mono">{index + 1}</span>
+                    {/* Milestone Center Node on the Spine (Concentric Double-Bezel) */}
+                    <div className="absolute right-3.5 md:relative md:right-auto w-9 h-9 rounded-full bg-[var(--color-bg-sunken)] p-0.5 border border-[var(--color-gold)]/40 shadow-xs z-10 shrink-0 group-hover:border-[var(--color-accent)] group-hover:scale-105 transition-[transform,border-color] duration-200 ease-[cubic-bezier(0.16,1,0.3,1)]">
+                      <div className="w-full h-full rounded-full bg-[var(--color-bg-elevated)] flex items-center justify-center text-[var(--color-gold-deep)] font-mono text-[11px] font-bold shadow-[inset_0_1px_1px_rgba(255,255,255,0.9)]">
+                        {index + 1}
+                      </div>
                     </div>
 
                     {/* Empty side for desktop rhythm */}
@@ -94,7 +96,7 @@ export function BigMap() {
 
         {/* Map Finale Note strictly from docx */}
         <Reveal direction="up" delay={0.4}>
-          <div className="max-w-md mx-auto mt-12 text-center p-6 rounded-2xl bg-[var(--color-bg-sunken)]/60 border border-[var(--color-border)] shadow-xs">
+          <div className="max-w-md mx-auto mt-16 text-center p-6 rounded-2xl bg-[var(--color-bg-sunken)]/60 border border-[var(--color-border)] shadow-xs">
             <p className="font-display text-lg sm:text-xl font-bold text-[var(--color-accent)] leading-relaxed">
               كل خطوة بتبني على اللي قبلها.
             </p>

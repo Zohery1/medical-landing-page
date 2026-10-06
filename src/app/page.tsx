@@ -42,43 +42,43 @@ export default function LandingPage() {
       {/* 03 — HERO */}
       <Hero />
 
-      {/* 04 — المشكلة */}
-      <Problem />
-
-      {/* 05 — التحول */}
-      <Transformation />
-
-      {/* 06 — لمن هذا الكورس؟ */}
-      <TargetAudience />
-
-      {/* 07 — ماذا ستتعلم؟ (Interactive Accordion) */}
-      <Curriculum />
-
-      {/* 08 — التحديث الجديد (10 محاور) */}
-      <NewUpdate />
-
-      {/* 09 — الخريطة الكبيرة للكورس (Visual Journey) */}
-      <BigMap />
-
-      {/* 10 — مخرجات الكورس (Marketing Toolkit) */}
-      <Deliverables />
-
-      {/* 11 — ليه الكورس مختلف؟ */}
-      <WhyDifferent />
-
-      {/* 12 — التدريب المجاني vs الكورس */}
-      <FreeVsPaid />
-
-      {/* 13 — AI في الكورس */}
-      <AiWorkflow />
-
-      {/* 14 — المحاضر (محمد العدوي) */}
+      {/* 04 — المحاضر (محمد العدوي) */}
       <Instructor />
 
-      {/* 15 — سابقة الأعمال (Tabs & Case Studies) */}
+      {/* 05 — سابقة الأعمال (Tabs & Case Studies) */}
       <Portfolio />
 
-      {/* 16 — Testimonials (فيديوهات + سلايدر المراجعات) */}
+      {/* 06 — المشكلة */}
+      <Problem />
+
+      {/* 07 — التحول */}
+      <Transformation />
+
+      {/* 08 — لمن هذا الكورس؟ */}
+      <TargetAudience />
+
+      {/* 09 — ماذا ستتعلم؟ (Interactive Accordion) */}
+      <Curriculum />
+
+      {/* 10 — التحديث الجديد (10 محاور) */}
+      <NewUpdate />
+
+      {/* 11 — الخريطة الكبيرة للكورس (Visual Journey) */}
+      <BigMap />
+
+      {/* 12 — مخرجات الكورس (Marketing Toolkit) */}
+      <Deliverables />
+
+      {/* 13 — ليه الكورس مختلف؟ */}
+      <WhyDifferent />
+
+      {/* 14 — التدريب المجاني vs الكورس */}
+      <FreeVsPaid />
+
+      {/* 15 — AI في الكورس */}
+      <AiWorkflow />
+
+      {/* 16 — آراء المتدربين والعملاء (Testimonials) */}
       <Testimonials />
 
       {/* 17 — العرض والسعر */}

@@ -71,16 +71,52 @@ export function ArchFrame({
 }) {
   return (
     <div className={cn("relative", className)}>
-      <div className="arch relative h-full w-full border border-[var(--color-gold)]/40 bg-[var(--color-bg-sunken)] p-2 shadow-sm">
-        <div className="arch relative h-full w-full overflow-hidden ring-1 ring-inset ring-[var(--color-gold)]/20 bg-[var(--color-bg-elevated)] pattern-girih-gold flex flex-col items-center justify-center min-h-[380px] p-6 text-center">
+      {/* Outer shell (Doppelrand) with subtle gradient and diffuse shadow */}
+      <div className="arch relative h-full w-full border border-[var(--color-gold)]/40 bg-gradient-to-b from-[var(--color-bg-sunken)] to-[var(--color-bg)] p-2 shadow-[0_20px_50px_rgba(156,123,69,0.08)]">
+        {/* Inner core with specular highlight and concentric curves */}
+        <div className="arch relative h-full w-full overflow-hidden ring-1 ring-inset ring-[var(--color-gold)]/20 bg-[var(--color-bg-elevated)] pattern-girih-gold shadow-[inset_0_1px_1px_rgba(255,255,255,0.85)] flex flex-col items-center justify-center min-h-[380px] p-6 text-center">
           {children}
 
           {badge && (
-            <span className="absolute bottom-4 start-1/2 -translate-x-1/2 text-[11px] font-semibold px-3 py-1 rounded-full bg-[var(--color-bg-elevated)]/90 border border-[var(--color-gold)]/30 text-[var(--color-gold-deep)] shadow-xs backdrop-blur-xs whitespace-nowrap">
+            <span className="absolute bottom-4 start-1/2 -translate-x-1/2 text-[11px] font-semibold px-3 py-1 rounded-full bg-[var(--color-bg-elevated)]/95 border border-[var(--color-gold)]/40 text-[var(--color-gold-deep)] shadow-xs backdrop-blur-xs whitespace-nowrap">
               {badge}
             </span>
           )}
         </div>
+      </div>
+    </div>
+  );
+}
+
+/** Double-Bezel Hardware Architecture Card (Doppelrand) */
+export function DoubleBezelCard({
+  className,
+  innerClassName,
+  children,
+  variant = "default",
+}: {
+  className?: string;
+  innerClassName?: string;
+  children: ReactNode;
+  variant?: "default" | "accent" | "gold";
+}) {
+  return (
+    <div
+      className={cn(
+        "relative rounded-[2rem] p-1.5 transition-[transform,box-shadow,border-color] duration-200 ease-[cubic-bezier(0.16,1,0.3,1)]",
+        variant === "default" && "bg-gradient-to-b from-[var(--color-border)]/80 to-[var(--color-border-strong)]/40 border border-[var(--color-border-strong)]/60 shadow-[0_16px_36px_-12px_rgba(22,21,20,0.05)]",
+        variant === "accent" && "bg-gradient-to-b from-[var(--color-accent)]/20 to-[var(--color-gold)]/10 border border-[var(--color-accent)]/30 shadow-[0_20px_48px_-12px_rgba(168,76,38,0.12)]",
+        variant === "gold" && "bg-gradient-to-b from-[var(--color-gold)]/25 to-[var(--color-gold-deep)]/10 border border-[var(--color-gold)]/40 shadow-[0_20px_48px_-12px_rgba(156,123,69,0.12)]",
+        className
+      )}
+    >
+      <div
+        className={cn(
+          "relative h-full w-full rounded-[calc(2rem-0.375rem)] bg-[var(--color-bg-elevated)] p-6 shadow-[inset_0_1px_1px_0_rgba(255,255,255,0.85)] border border-white/50",
+          innerClassName
+        )}
+      >
+        {children}
       </div>
     </div>
   );

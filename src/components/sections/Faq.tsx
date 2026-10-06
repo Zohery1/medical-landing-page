@@ -71,25 +71,26 @@ export function Faq() {
         {faqs.map((item, idx) => {
           const isOpen = openIndex === idx;
           return (
-            <Reveal key={idx} direction="up" delay={idx * 0.03}>
-              <div className="py-5 text-right">
+            <Reveal key={idx} direction="up" delay={idx * 0.025}>
+              <div className="py-4 sm:py-5 text-right">
                 <button
                   onClick={() => setOpenIndex(isOpen ? null : idx)}
-                  className="w-full text-right flex items-center justify-between gap-4 cursor-pointer select-none group"
+                  className="w-full text-right flex items-center justify-between gap-4 cursor-pointer select-none group min-h-[44px]"
+                  aria-expanded={isOpen}
                 >
-                  <span className="font-display text-base sm:text-lg font-bold text-[var(--color-ink)] group-hover:text-[var(--color-accent)] transition-colors">
+                  <span className="font-display text-base sm:text-lg font-bold text-[var(--color-ink)] group-hover:text-[var(--color-accent)] transition-colors duration-150">
                     {item.q}
                   </span>
                   <motion.div
                     animate={{ rotate: isOpen ? 180 : 0 }}
-                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                    className="w-7 h-7 rounded-full bg-[var(--color-bg-sunken)] flex items-center justify-center shrink-0 border border-[var(--color-border)]"
+                    transition={{ type: "spring", stiffness: 300, damping: 22 }}
+                    className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 border transition-colors duration-150 ${
+                      isOpen
+                        ? "bg-[var(--color-accent)]/10 border-[var(--color-accent)]/30 text-[var(--color-accent)]"
+                        : "bg-[var(--color-bg-sunken)] border-[var(--color-border)] text-[var(--color-gold)]"
+                    }`}
                   >
-                    <ChevronDown
-                      className={`w-4 h-4 transition-colors ${
-                        isOpen ? "text-[var(--color-accent)]" : "text-[var(--color-gold)]"
-                      }`}
-                    />
+                    <ChevronDown className="w-4 h-4" />
                   </motion.div>
                 </button>
 
@@ -99,10 +100,10 @@ export function Faq() {
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                      transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
                       className="overflow-hidden"
                     >
-                      <div className="pt-3 pb-2 text-xs sm:text-sm text-[var(--color-muted)] leading-relaxed max-w-[65ch]">
+                      <div className="pt-2 pb-3 ps-1 text-xs sm:text-sm text-[var(--color-ink-soft)] font-medium leading-relaxed max-w-[65ch]">
                         {item.a}
                       </div>
                     </motion.div>

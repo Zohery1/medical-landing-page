@@ -91,94 +91,105 @@ export function Curriculum() {
         {modules.map((mod, idx) => {
           const isOpen = openModuleIndex === idx;
           return (
-            <Reveal key={mod.part} direction="up" delay={idx * 0.08}>
-              <motion.div
-                animate={{
-                  borderColor: isOpen ? "var(--color-accent)" : "var(--color-border-strong)",
-                  backgroundColor: isOpen ? "var(--color-bg-elevated)" : "transparent",
-                }}
-                className="border-b rounded-2xl p-4 transition-all duration-300"
+            <Reveal key={mod.part} direction="up" delay={idx * 0.06}>
+              <div
+                className={`p-1 rounded-[1.75rem] transition-[background-color,border-color,box-shadow] duration-200 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                  isOpen
+                    ? "bg-gradient-to-b from-[var(--color-accent)]/20 to-[var(--color-gold)]/15 border border-[var(--color-accent)]/35 shadow-[0_16px_36px_-10px_rgba(168,76,38,0.12)]"
+                    : "bg-[var(--color-border)]/50 border border-transparent shadow-2xs hover:border-[var(--color-border-strong)]"
+                }`}
               >
-                <button
-                  onClick={() => setOpenModuleIndex(isOpen ? null : idx)}
-                  className="w-full py-2 text-right flex items-center justify-between gap-4 cursor-pointer select-none group"
+                <div
+                  className={`rounded-[calc(1.75rem-0.25rem)] p-5 sm:p-6 transition-colors duration-200 ${
+                    isOpen
+                      ? "bg-[var(--color-bg-elevated)] shadow-[inset_0_1px_1px_rgba(255,255,255,0.9)]"
+                      : "bg-[var(--color-bg-elevated)]/80 hover:bg-[var(--color-bg-elevated)]"
+                  }`}
                 >
-                  <div className="flex items-center gap-4">
-                    <motion.span
-                      animate={{ scale: isOpen ? 1.15 : 1, color: isOpen ? "var(--color-accent)" : "var(--color-gold-deep)" }}
-                      className="font-mono text-sm font-bold w-7"
-                    >
-                      0{idx + 1}
-                    </motion.span>
-                    <div>
-                      <span className="text-xs font-semibold text-[var(--color-gold-deep)] block mb-0.5">
-                        {mod.part}
-                      </span>
-                      <h3 className="font-display text-lg sm:text-xl font-bold text-[var(--color-ink)] group-hover:text-[var(--color-accent)] transition-colors">
-                        {mod.title}
-                      </h3>
-                    </div>
-                  </div>
-
-                  <motion.div
-                    animate={{ rotate: isOpen ? 180 : 0 }}
-                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                    className="w-8 h-8 rounded-full bg-[var(--color-bg-sunken)] flex items-center justify-center shrink-0 border border-[var(--color-border)]"
+                  <button
+                    onClick={() => setOpenModuleIndex(isOpen ? null : idx)}
+                    className="w-full text-right flex items-center justify-between gap-4 cursor-pointer select-none group min-h-[44px]"
+                    aria-expanded={isOpen}
                   >
-                    <ChevronDown
-                      className={`w-4 h-4 transition-colors ${
-                        isOpen ? "text-[var(--color-accent)]" : "text-[var(--color-gold)]"
-                      }`}
-                    />
-                  </motion.div>
-                </button>
-
-                <AnimatePresence initial={false}>
-                  {isOpen && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-                      className="overflow-hidden"
-                    >
-                      <div className="pt-4 pb-4 ps-8 space-y-4">
-                        <div className="text-xs font-bold text-[var(--color-gold-deep)]">
-                          هتتعلم:
-                        </div>
-
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                          {mod.topics.map((t, tIdx) => (
-                            <motion.div
-                              key={tIdx}
-                              initial={{ opacity: 0, y: 10 }}
-                              animate={{ opacity: 1, y: 0 }}
-                              transition={{ delay: tIdx * 0.03 }}
-                              className="flex items-start gap-2.5 text-xs sm:text-sm text-[var(--color-ink-soft)]"
-                            >
-                              <Check className="w-4 h-4 text-[var(--color-accent)] shrink-0 mt-0.5" />
-                              <span className="leading-relaxed">{t}</span>
-                            </motion.div>
-                          ))}
-                        </div>
-
-                        {mod.application && (
-                          <motion.div
-                            initial={{ opacity: 0, scale: 0.98 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            className="p-4 rounded-xl bg-[var(--color-gold)]/10 border border-[var(--color-gold)]/30 text-xs sm:text-sm text-[var(--color-ink)] font-medium"
-                          >
-                            <strong className="text-[var(--color-gold-deep)] font-semibold block mb-0.5">
-                              التطبيق:
-                            </strong>
-                            {mod.application}
-                          </motion.div>
-                        )}
+                    <div className="flex items-center gap-4">
+                      <span
+                        className={`font-mono text-sm font-bold w-7 transition-colors duration-200 ${
+                          isOpen ? "text-[var(--color-accent)]" : "text-[var(--color-gold-deep)]"
+                        }`}
+                      >
+                        0{idx + 1}
+                      </span>
+                      <div>
+                        <span className="text-xs font-semibold text-[var(--color-gold-deep)] block mb-0.5">
+                          {mod.part}
+                        </span>
+                        <h3 className="font-display text-lg sm:text-xl font-bold text-[var(--color-ink)] group-hover:text-[var(--color-accent)] transition-colors duration-150">
+                          {mod.title}
+                        </h3>
                       </div>
+                    </div>
+
+                    <motion.div
+                      animate={{ rotate: isOpen ? 180 : 0 }}
+                      transition={{ type: "spring", stiffness: 300, damping: 22 }}
+                      className={`w-9 h-9 rounded-full flex items-center justify-center shrink-0 border transition-colors duration-150 ${
+                        isOpen
+                          ? "bg-[var(--color-accent)]/10 border-[var(--color-accent)]/30 text-[var(--color-accent)]"
+                          : "bg-[var(--color-bg-sunken)] border-[var(--color-border)] text-[var(--color-gold)]"
+                      }`}
+                    >
+                      <ChevronDown className="w-4 h-4" />
                     </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.div>
+                  </button>
+
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
+                        className="overflow-hidden"
+                      >
+                        <div className="pt-6 pb-2 ps-2 sm:ps-11 space-y-4">
+                          <div className="text-xs font-bold text-[var(--color-gold-deep)] tracking-wide">
+                            المحاور والتطبيقات:
+                          </div>
+
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                            {mod.topics.map((t, tIdx) => (
+                              <motion.div
+                                key={tIdx}
+                                initial={{ opacity: 0, y: 8 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: tIdx * 0.025, duration: 0.2 }}
+                                className="flex items-start gap-2.5 text-xs sm:text-sm text-[var(--color-ink-soft)]"
+                              >
+                                <Check className="w-4 h-4 text-[var(--color-accent)] shrink-0 mt-0.5 stroke-[2.2]" />
+                                <span className="leading-relaxed">{t}</span>
+                              </motion.div>
+                            ))}
+                          </div>
+
+                          {mod.application && (
+                            <motion.div
+                              initial={{ opacity: 0, scale: 0.98 }}
+                              animate={{ opacity: 1, scale: 1 }}
+                              transition={{ duration: 0.2 }}
+                              className="p-4 rounded-xl bg-[var(--color-gold)]/10 border border-[var(--color-gold)]/30 text-xs sm:text-sm text-[var(--color-ink)] font-medium"
+                            >
+                              <strong className="text-[var(--color-gold-deep)] font-semibold block mb-0.5">
+                                التطبيق العملي:
+                              </strong>
+                              {mod.application}
+                            </motion.div>
+                          )}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              </div>
             </Reveal>
           );
         })}

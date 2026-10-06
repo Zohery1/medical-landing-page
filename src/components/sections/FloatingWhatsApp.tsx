@@ -14,21 +14,24 @@ export function FloatingWhatsApp() {
       <AnimatePresence>
         {showTooltip && (
           <motion.div
-            initial={{ opacity: 0, scale: 0.8, x: -10 }}
+            initial={{ opacity: 0, scale: 0.96, x: -8 }}
             animate={{ opacity: 1, scale: 1, x: 0 }}
-            exit={{ opacity: 0, scale: 0.8, x: -10 }}
-            transition={{ type: "spring", stiffness: 300, damping: 25 }}
-            className="relative bg-[var(--color-bg-elevated)] text-[var(--color-ink)] px-4 py-2.5 rounded-2xl shadow-2xl border border-[var(--color-border-strong)] text-xs font-semibold max-w-[220px] text-right flex items-center justify-between gap-2"
+            exit={{ opacity: 0, scale: 0.96, x: -8 }}
+            transition={{ type: "spring", stiffness: 350, damping: 26 }}
+            className="relative bg-[var(--color-bg-elevated)] text-[var(--color-ink)] px-4 py-2.5 rounded-2xl shadow-xl border border-[var(--color-border-strong)] text-xs font-semibold max-w-[230px] text-right flex items-center justify-between gap-2.5"
           >
-            <div>
-              <div className="text-[var(--color-ink)]">💬 عندك سؤال عن الكورس؟</div>
-              <div className="text-[11px] text-[var(--color-gold-deep)]">تواصل معنا على WhatsApp</div>
+            <div className="flex items-start gap-2">
+              <MessageCircle className="w-4 h-4 text-[var(--color-accent)] shrink-0 mt-0.5" />
+              <div>
+                <div className="text-[var(--color-ink)] font-bold">عندك سؤال عن الكورس؟</div>
+                <div className="text-[11px] text-[var(--color-gold-deep)] font-medium">تواصل معنا على WhatsApp</div>
+              </div>
             </div>
             <motion.button
               whileHover={{ scale: 1.15 }}
               whileTap={{ scale: 0.9 }}
               onClick={() => setShowTooltip(false)}
-              className="text-[var(--color-muted)] hover:text-[var(--color-ink)] p-0.5 cursor-pointer"
+              className="text-[var(--color-muted)] hover:text-[var(--color-ink)] p-1 rounded-full hover:bg-[var(--color-bg-sunken)] cursor-pointer shrink-0 transition-colors"
               aria-label="إغلاق"
             >
               <X className="w-3.5 h-3.5" />

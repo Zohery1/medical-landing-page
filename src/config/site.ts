@@ -6,6 +6,7 @@ export const siteConfig = {
     name: "محمد العدوي",
     role: "Founder & CEO — Copyway",
     bio: "متخصص في الـ Copywriting والتسويق الرقمي بخبرة عملية تتجاوز 6 سنوات، عمل خلالها مع شركات وأنشطة تجارية وخدمية في مصر والكويت والإمارات والأردن والسعودية.",
+    image: "/images/instructor.png",
     stats: [
       { label: "منشور إعلاني وتسويقي", value: "+4,000" },
       { label: "متدرب في صناعة المحتوى", value: "+2,000" },
@@ -13,6 +14,7 @@ export const siteConfig = {
       { label: "دول عربية تم العمل معها", value: "5" },
     ],
   },
+  coverImage: "/images/cover.png",
   whatsapp: {
     number: "+201507786761",
     rawNumber: "201507786761",
@@ -27,10 +29,10 @@ export const siteConfig = {
   },
   navLinks: [
     { label: "الكورس", href: "#hero" },
-    { label: "ماذا ستتعلم؟", href: "#curriculum" },
     { label: "المحاضر", href: "#instructor" },
-    { label: "آراء الطلاب", href: "#testimonials" },
     { label: "سابقة الأعمال", href: "#portfolio" },
+    { label: "ماذا ستتعلم؟", href: "#curriculum" },
+    { label: "آراء الطلاب", href: "#testimonials" },
     { label: "الأسئلة الشائعة", href: "#faq" },
   ],
 };

@@ -43,33 +43,35 @@ export function WhyDifferent() {
           </div>
         </Reveal>
 
-        {/* لكن — مرتب من اليمين للشمال */}
+        {/* لكن — مرتب من اليمين للشمال بنظام Double-Bezel */}
         <Reveal direction="up" delay={0.2}>
-          <div className="p-6 sm:p-8 rounded-2xl bg-[var(--color-bg-elevated)] border-2 border-[var(--color-accent)] shadow-md space-y-4">
-            <span className="font-display text-base font-bold text-[var(--color-accent)] block">
-              لكن:
-            </span>
+          <div className="p-1.5 rounded-[2rem] bg-gradient-to-b from-[var(--color-accent)]/25 to-[var(--color-gold)]/15 border border-[var(--color-accent)]/30 shadow-[0_20px_48px_-12px_rgba(168,76,38,0.12)]">
+            <div className="p-6 sm:p-8 rounded-[calc(2rem-0.375rem)] bg-[var(--color-bg-elevated)] shadow-[inset_0_1px_1px_rgba(255,255,255,0.95)] space-y-4">
+              <span className="font-display text-base font-bold text-[var(--color-accent)] block">
+                لكن:
+              </span>
 
-            {/* Pipeline displayed from right to left (RTL) */}
-            <div dir="rtl" className="flex flex-wrap items-center gap-2 sm:gap-2.5">
-              {steps.map((s, idx) => (
-                <React.Fragment key={s.name}>
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[var(--color-bg-sunken)] border border-[var(--color-border)] hover:border-[var(--color-accent)] hover:bg-[var(--color-bg-elevated)] transition-colors duration-150 group shadow-2xs">
-                    <span className="font-mono text-[10px] font-bold text-[var(--color-gold-deep)] group-hover:text-[var(--color-accent)] transition-colors">
-                      {s.num}
-                    </span>
-                    <span className="font-mono text-xs sm:text-sm font-bold text-[var(--color-ink)]">
-                      {s.name}
-                    </span>
-                  </div>
+              {/* Pipeline displayed from right to left (RTL) */}
+              <div dir="rtl" className="flex flex-wrap items-center gap-2 sm:gap-2.5">
+                {steps.map((s, idx) => (
+                  <React.Fragment key={s.name}>
+                    <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[var(--color-bg-sunken)] border border-[var(--color-border)] hover:border-[var(--color-accent)] hover:bg-[var(--color-bg-elevated)] transition-[background-color,border-color,transform] duration-150 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-0.5 group shadow-2xs">
+                      <span className="font-mono text-[10px] font-bold text-[var(--color-gold-deep)] group-hover:text-[var(--color-accent)] transition-colors">
+                        {s.num}
+                      </span>
+                      <span className="font-mono text-xs sm:text-sm font-bold text-[var(--color-ink)]">
+                        {s.name}
+                      </span>
+                    </div>
 
-                  {idx < steps.length - 1 && (
-                    <span className="text-[var(--color-accent)] font-bold text-sm select-none">
-                      ←
-                    </span>
-                  )}
-                </React.Fragment>
-              ))}
+                    {idx < steps.length - 1 && (
+                      <span className="text-[var(--color-accent)] font-bold text-sm select-none" aria-hidden="true">
+                        ←
+                      </span>
+                    )}
+                  </React.Fragment>
+                ))}
+              </div>
             </div>
           </div>
         </Reveal>

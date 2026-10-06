@@ -71,15 +71,15 @@ export function NewUpdate() {
   ];
 
   return (
-    <section id="update" className="py-20 bg-[var(--color-bg-sunken)]/60 border-y border-[var(--color-border)] relative overflow-hidden">
+    <section id="update" className="py-24 md:py-32 bg-[var(--color-bg-sunken)]/60 border-y border-[var(--color-border)] relative overflow-hidden">
       <Container size="wide">
         <div className="max-w-3xl mx-auto text-center space-y-4 mb-16">
           <Reveal direction="down" delay={0.1}>
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[var(--color-accent)]/10 text-[var(--color-accent)] border border-[var(--color-accent)]/20 text-xs font-bold"
+              className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[var(--color-accent)]/10 text-[var(--color-accent)] border border-[var(--color-accent)]/20 text-xs font-bold shadow-2xs"
             >
-              <Sparkles className="w-3.5 h-3.5 animate-spin-slow" />
+              <Sparkles className="w-3.5 h-3.5" />
               <span>التحديث الجديد</span>
             </motion.div>
           </Reveal>
@@ -97,25 +97,25 @@ export function NewUpdate() {
           </Reveal>
         </div>
 
-        {/* 10 Cards Grid with 3D TiltCards & Staggered Reveal */}
+        {/* 10 Cards Grid with Double-Bezel Hardware Architecture */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {updates.map((item, index) => (
-            <Reveal key={item.num} direction="up" delay={index * 0.06}>
-              <TiltCard intensity={8} className="h-full">
-                <div className="h-full bg-[var(--color-bg-elevated)] p-6 rounded-[var(--radius-card)] border border-[var(--color-border)] hover:border-[var(--color-gold)] transition-all duration-200 shadow-sm flex flex-col justify-between group">
+            <Reveal key={item.num} direction="up" delay={index * 0.04}>
+              <div className="h-full p-1 rounded-[1.75rem] bg-[var(--color-border)]/60 hover:bg-gradient-to-b hover:from-[var(--color-accent)]/20 hover:to-[var(--color-gold)]/15 border border-[var(--color-border-strong)]/40 hover:border-[var(--color-accent)]/30 transition-[background-color,border-color,box-shadow,transform] duration-200 ease-[cubic-bezier(0.16,1,0.3,1)] shadow-2xs hover:shadow-[0_16px_36px_-10px_rgba(22,21,20,0.06)] hover:-translate-y-1 group">
+                <div className="h-full bg-[var(--color-bg-elevated)] p-6 rounded-[calc(1.75rem-0.25rem)] shadow-[inset_0_1px_1px_rgba(255,255,255,0.9)] flex flex-col justify-between">
                   <div>
-                    <div className="flex items-center justify-between mb-3">
-                      <span className="font-mono text-xs font-bold px-2.5 py-1 rounded-md bg-[var(--color-bg-sunken)] text-[var(--color-gold-deep)] border border-[var(--color-border)] group-hover:text-[var(--color-accent)] group-hover:border-[var(--color-accent)]/40 transition-colors">
+                    <div className="flex items-center justify-between mb-3.5">
+                      <span className="font-mono text-xs font-bold px-2.5 py-1 rounded-lg bg-[var(--color-bg-sunken)] text-[var(--color-gold-deep)] border border-[var(--color-border)] group-hover:text-[var(--color-accent)] group-hover:border-[var(--color-accent)]/30 transition-colors">
                         {item.num}
                       </span>
                       <motion.div
-                        animate={{ scale: [1, 1.4, 1] }}
-                        transition={{ duration: 2.5, repeat: Infinity, delay: index * 0.2 }}
+                        animate={{ scale: [1, 1.3, 1] }}
+                        transition={{ duration: 3, repeat: Infinity, delay: index * 0.2 }}
                         className="w-2 h-2 rounded-full bg-[var(--color-accent)]"
                       />
                     </div>
 
-                    <h3 className="font-display text-lg font-bold text-[var(--color-ink)] mb-2 group-hover:text-[var(--color-accent)] transition-colors">
+                    <h3 className="font-display text-lg font-bold text-[var(--color-ink)] mb-2 group-hover:text-[var(--color-accent)] transition-colors duration-150">
                       {item.title}
                     </h3>
 
@@ -129,7 +129,7 @@ export function NewUpdate() {
                     <span>المخرج: <strong className="font-semibold text-[var(--color-ink)]">{item.deliverable}</strong></span>
                   </div>
                 </div>
-              </TiltCard>
+              </div>
             </Reveal>
           ))}
         </div>

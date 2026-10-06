@@ -95,7 +95,7 @@ export function TiltCard({
 }: TiltCardProps) {
   return (
     <div
-      className={`transition-all duration-150 ease-out hover:-translate-y-1.5 hover:shadow-lg hover:border-[var(--color-gold)]/80 will-change-transform ${className}`}
+      className={`transition-[transform,box-shadow,border-color] duration-200 ease-[cubic-bezier(0.16,1,0.3,1)] hover:-translate-y-1 hover:shadow-[0_16px_36px_-10px_rgba(22,21,20,0.07)] hover:border-[var(--color-gold)]/70 active:scale-[0.985] will-change-transform ${className}`}
     >
       {children}
     </div>

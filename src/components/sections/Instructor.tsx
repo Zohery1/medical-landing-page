@@ -1,11 +1,11 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { siteConfig } from "@/config/site";
 import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
 import { DiamondMark } from "@/components/ui/motifs";
-import { User } from "lucide-react";
 import { Reveal, FloatingElement, ShimmerButtonWrapper } from "@/components/ui/motion-primitives";
 
 export function Instructor() {
@@ -30,37 +30,45 @@ export function Instructor() {
         <div className="lg:col-span-6 flex justify-center">
           <FloatingElement distance={6} duration={5} className="w-full flex justify-center">
             <div className="relative w-full max-w-[500px] sm:max-w-[540px]">
-              {/* Outer arch border */}
-              <div className="relative border-2 border-[var(--color-gold)]/50 bg-[var(--color-bg-sunken)] p-3.5 shadow-2xl rounded-t-[80px] sm:rounded-t-[90px] rounded-b-2xl">
-                <div className="relative overflow-hidden bg-gradient-to-b from-[var(--color-bg-elevated)] via-[var(--color-bg-elevated)] to-[var(--color-bg-sunken)] border border-[var(--color-gold)]/30 rounded-t-[70px] sm:rounded-t-[80px] rounded-b-xl flex flex-col items-center justify-between p-6 sm:p-8 text-center h-[360px] sm:h-[390px]">
+              {/* Outer arch shell (Doppelrand) */}
+              <div className="relative p-2.5 bg-gradient-to-b from-[var(--color-gold)]/30 via-[var(--color-gold)]/15 to-[var(--color-border)]/50 border border-[var(--color-gold)]/40 shadow-[0_24px_50px_-12px_rgba(156,123,69,0.14)] rounded-t-[84px] sm:rounded-t-[96px] rounded-b-3xl">
+                {/* Inner core with specular highlight and concentric curves */}
+                <div className="relative overflow-hidden bg-gradient-to-b from-[var(--color-bg-elevated)] via-[var(--color-bg-elevated)] to-[var(--color-bg-sunken)] border border-white/60 shadow-[inset_0_1px_1px_rgba(255,255,255,0.95)] rounded-t-[74px] sm:rounded-t-[86px] rounded-b-2xl flex flex-col items-center justify-between p-6 sm:p-8 text-center h-[380px] sm:h-[410px]">
                   {/* Subtle girih background */}
-                  <div className="absolute inset-0 pattern-girih-gold opacity-25 pointer-events-none" />
+                  <div className="absolute inset-0 pattern-girih-gold opacity-20 pointer-events-none" />
 
                   {/* Top arch tag */}
                   <div className="relative z-10 pt-1">
-                    <span className="text-[11px] font-mono tracking-widest text-[var(--color-gold-deep)] uppercase px-4 py-1 rounded-full bg-[var(--color-gold)]/10 border border-[var(--color-gold)]/25 font-bold">
+                    <span className="text-[11px] font-mono tracking-widest text-[var(--color-gold-deep)] uppercase px-4 py-1 rounded-full bg-[var(--color-gold)]/10 border border-[var(--color-gold)]/25 font-bold shadow-2xs">
                       Instructor Portrait
                     </span>
                   </div>
 
-                  {/* Big Center Avatar & Label */}
-                  <div className="relative z-10 flex flex-col items-center gap-3 my-auto">
-                    <div className="w-36 h-36 sm:w-40 sm:h-40 rounded-full bg-[var(--color-bg-elevated)] border-3 border-[var(--color-gold)] flex items-center justify-center text-[var(--color-gold-deep)] shadow-xl shadow-[var(--color-gold)]/15 group-hover:scale-105 transition-transform duration-200 ring-4 ring-[var(--color-gold)]/10">
-                      <User className="w-20 h-20 sm:w-22 sm:h-22 stroke-[1.2] text-[var(--color-gold-deep)]" />
+                  {/* Big Center Avatar & Label with Real Photo */}
+                  <div className="relative z-10 flex flex-col items-center gap-3.5 my-auto">
+                    <div className="relative w-36 h-36 sm:w-44 sm:h-44 rounded-full bg-[var(--color-ink)] border-2 border-[var(--color-gold)]/80 flex items-center justify-center shadow-xl shadow-[var(--color-gold)]/20 ring-4 ring-[var(--color-gold)]/20 transition-transform duration-300 hover:scale-105 overflow-hidden group">
+                      <Image
+                        src="/images/instructor.png"
+                        alt="محمد العدوي — Founder & CEO Copyway"
+                        width={288}
+                        height={288}
+                        priority
+                        className="w-full h-full object-cover object-top"
+                      />
                     </div>
                     <div>
-                      <span className="text-base font-display font-bold text-[var(--color-ink)] block">
-                        مساحة صورة المحاضر
-                      </span>
-                      <span className="text-xs text-[var(--color-gold-deep)] font-medium">
+                      <span className="text-lg font-display font-bold text-[var(--color-ink)] block">
                         محمد العدوي
+                      </span>
+                      <span className="text-xs text-[var(--color-gold-deep)] font-semibold">
+                        خبير التسويق الطبي وصناعة المحتوى
                       </span>
                     </div>
                   </div>
 
                   {/* Bottom badge */}
                   <div className="relative z-10 w-full max-w-[340px]">
-                    <div className="py-2 px-5 rounded-xl bg-[var(--color-bg-elevated)]/95 border border-[var(--color-gold)]/40 text-[var(--color-gold-deep)] text-xs sm:text-sm font-bold shadow-xs backdrop-blur-xs">
+                    <div className="py-2.5 px-5 rounded-xl bg-[var(--color-bg-elevated)]/95 border border-[var(--color-gold)]/35 text-[var(--color-gold-deep)] text-xs sm:text-sm font-bold shadow-xs backdrop-blur-xs">
                       Founder & CEO — Copyway
                     </div>
                   </div>
